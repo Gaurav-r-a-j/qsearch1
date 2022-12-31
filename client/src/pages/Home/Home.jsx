@@ -12,7 +12,7 @@ const speakWelcome = () => {
     if ('speechSynthesis' in window) {
         // Create a new SpeechSynthesisUtterance object
         const welcomeMessage = new SpeechSynthesisUtterance(`Happpy new year 2023."Wishing you a year filled with love, laughter, and all your heart's desires. Happy New year again.  `);
-        welcomeMessage.pitch = 1.1
+        welcomeMessage.pitch = 1
         // Set the voice and language for the message
         welcomeMessage.voice = speechSynthesis.getVoices().find(voice => voice.name === 'Google UK English Female');
         welcomeMessage.lang = 'en-GB';
@@ -40,7 +40,7 @@ const Home = () => {
             // image2={image30}
             />
             <section className="what_we_provide">
-                <h2>What We Provide?</h2>
+                <h2 >What We Provide?</h2>
                 <Categories />
             </section>
 

@@ -2,9 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './Developers.css'
 
-// import dev2 from '../../assets/33.png'
-import dev3 from '../../assets/43.png'
-
 function Developers() {
     return (
         <section className="developers_section">
@@ -21,7 +18,7 @@ function Developers() {
 
                 />
                 <SingleDeveloper
-                    image={dev3}
+                    image={"https://upload-print-blog.s3.ap-south-1.amazonaws.com/43.webp"}
                     name={"Unknown"}
 
                 />
