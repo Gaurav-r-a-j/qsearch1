@@ -62,6 +62,7 @@
 }
 .boy_image img:hover{
     scale: 1.2;
+    cursor: progress;
     /* opacity: 1; */
     /* cursor:context-menu; */
 }
@@ -75,4 +76,5 @@
 
 .alternate_image img{
     width: 200px;
+
 }

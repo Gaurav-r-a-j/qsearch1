@@ -1,4 +1,4 @@
-import React, {  } from 'react'
+import React, { } from 'react'
 import { Link } from 'react-router-dom'
 import './Footer.css'
 const Footer = ({ topRef }) => {
@@ -26,7 +26,7 @@ const Footer = ({ topRef }) => {
         <div className="footer-content">
           <div className="footer-content-column">
             <div className="footer-logo">
-              <Link to={'/'} onClick={ handleClick} className="footer-logo-link">
+              <Link to={'/'} onClick={handleClick} className="footer-logo-link">
                 <span className="hidden-link-text">LOGO</span>
                 <h1>QSEARCH</h1>
               </Link>
@@ -51,13 +51,13 @@ const Footer = ({ topRef }) => {
               <h2 className="footer-menu-name"> Company</h2>
               <ul id="menu-company" className="footer-menu-list">
                 <li className="menu-item menu-item-type-post_type menu-item-object-page">
-                  <Link onClick={ handleClick} to="/support">Contact</Link>
+                  <Link onClick={handleClick} to="/support">Contact</Link>
                 </li>
                 <li className="menu-item menu-item-type-taxonomy menu-item-object-category">
-                  <Link onClick={ handleClick} to="/">posts</Link>
+                  <Link onClick={handleClick} to="/">posts</Link>
                 </li>
                 <li className="menu-item menu-item-type-post_type menu-item-object-page">
-                  <Link onClick={ handleClick} to="/support">Careers</Link>
+                  <Link onClick={handleClick} to="/support">Careers</Link>
                 </li>
               </ul>
             </div>
@@ -65,10 +65,10 @@ const Footer = ({ topRef }) => {
               <h2 className="footer-menu-name"> Legal</h2>
               <ul id="menu-legal" className="footer-menu-list">
                 <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy menu-item-170434">
-                  <Link onClick={ handleClick} to="/support">Privacy Policy</Link>
+                  <Link onClick={handleClick} to="/support">Privacy Policy</Link>
                 </li>
                 <li className="menu-item menu-item-type-post_type menu-item-object-page">
-                  <Link onClick={ handleClick} to="/support">Terms of Use</Link>
+                  <Link onClick={handleClick} to="/support">Terms of Use</Link>
                 </li>
               </ul>
             </div>
@@ -78,12 +78,12 @@ const Footer = ({ topRef }) => {
               <h2 className="footer-menu-name"> Quick Links</h2>
               <ul id="menu-quick-links" className="footer-menu-list">
                 <li className="menu-item menu-item-type-custom menu-item-object-custom">
-                  <Link onClick={ handleClick} rel="noopener noreferrer" to="/support">
+                  <Link onClick={handleClick} rel="noopener noreferrer" to="/support">
                     Support Center
                   </Link>
                 </li>
                 <li className="menu-item menu-item-type-custom menu-item-object-custom">
-                  <Link onClick={ handleClick} rel="noopener noreferrer" to="/support">
+                  <Link onClick={handleClick} rel="noopener noreferrer" to="/support">
                     Whatsapp Support
                   </Link>
                 </li>
@@ -91,10 +91,10 @@ const Footer = ({ topRef }) => {
                   {/* <Link to="/">Security</Link> */}
                 </li>
                 <li className="menu-item menu-item-type-post_type menu-item-object-page">
-                  <Link onClick={ handleClick} to="/">Blog</Link>
+                  <Link onClick={handleClick} to="/">Blog</Link>
                 </li>
                 <li className="menu-item menu-item-type-post_type_archive menu-item-object-customer">
-                  <Link onClick={ handleClick} to="/support">Customers</Link>
+                  <Link onClick={handleClick} to="/support">Customers</Link>
                 </li>
                 <li className="menu-item menu-item-type-post_type menu-item-object-page">
                   {/* <Link to="/">Reviews</Link> */}
@@ -109,14 +109,14 @@ const Footer = ({ topRef }) => {
                 {" "}
                 Have a support question?
               </p>
-              <Link
+              <a
                 className="footer-call-to-action-button button"
-                to="support"
+                href="https://api.whatsapp.com/send?phone=918582042402&text=Hey , I have a query ->"
                 target="_self"
               >
                 {" "}
                 Get in Touch{" "}
-              </Link>
+              </a>
             </div>
             <div className="footer-call-to-action">
               <h2 className="footer-call-to-action-title"> You Call Us</h2>

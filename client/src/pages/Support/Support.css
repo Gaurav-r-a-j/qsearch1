@@ -167,8 +167,15 @@
     border-radius: 5px;
     color: white;
     font-weight: 400;
+    text-transform: capitalize;
+    cursor: progress;
+
 }
 
+
+.whatsapp_image{
+    cursor: pointer;
+}
 
 
 

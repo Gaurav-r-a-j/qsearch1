@@ -5,14 +5,16 @@ import Background from '../../components/Background/Background';
 // import cat1 from '../../assets/cat1.png'
 import image32 from '../../assets/32.png'
 import image33 from '../../assets/33.png'
-import cat1 from '../../assets/cat1.png'
+// import cat1 from '../../assets/cat1.png'
 import Developers from './Developers';
 
 
 const Support = () => {
 
 
-
+    const handleMessage = () => {
+        window.location.href = `https://api.whatsapp.com/send?phone=918582042402&text=Hey , I have a query ->  `
+    }
 
     return (
         <div className="support_container">
@@ -23,20 +25,20 @@ const Support = () => {
 
             <div className="main_support_options d-flex-center">
                 <div className="support_image">
-                    <img src={cat1} alt="" />
-                    <h3> prints </h3>
+                    <img src={"https://upload-print-blog.s3.ap-south-1.amazonaws.com/girl.webp"} alt="" />
+                    <h3> Assignments </h3>
+                </div>
+                <div className="support_image whatsapp_image">
+                    <img onClick={handleMessage} src={"https://upload-print-blog.s3.ap-south-1.amazonaws.com/whatsapp.webp"} alt="" />
+                    <h3> Whatsapp </h3>
                 </div>
                 <div className="support_image">
-                    <img src={cat1} alt="" />
-                    <h3> prints </h3>
+                    <img src={"https://upload-print-blog.s3.ap-south-1.amazonaws.com/print.webp"} alt="" />
+                    <h3> Prints </h3>
                 </div>
                 <div className="support_image">
-                    <img src={cat1} alt="" />
-                    <h3> prints </h3>
-                </div>
-                <div className="support_image">
-                    <img src={cat1} alt="" />
-                    <h3> prints </h3>
+                    <img src={"https://upload-print-blog.s3.ap-south-1.amazonaws.com/boy.webp"} alt="" />
+                    <h3> Needs </h3>
                 </div>
             </div>
 

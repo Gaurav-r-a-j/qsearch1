@@ -6,7 +6,7 @@ import { getTimeAgo } from '../../generic_functions/smallFunctions';
 import { NotificationContext } from '../CustomNotification/CustomNotification';
 import DeleteModal from '../Modal/DeleteModal';
 import './Card.css'
-const Card = ({ postImg, title, desc, cat, author, slug, postId ,postedAt }) => {
+const Card = ({ postImg, title, desc, cat, author, slug, postId, postedAt }) => {
     const { showNotification } = React.useContext(NotificationContext);
 
 
@@ -26,11 +26,13 @@ const Card = ({ postImg, title, desc, cat, author, slug, postId ,postedAt }) => 
         try {
             const { data } = await api.delete(`/post/posts/${postId}`)
             // localhost:5500/api/post/posts/63ac23e52ef56b74f5d82574
-            showNotification('success', 'Post deleted successfully', 2000, 'top', 'Post Deleted Successfully!');
+            showNotification('info', 'Post deleted successfully', 2000, 'top', 'Post Deleted Successfully!');
             console.log('post deleted', data)
             setModalOpen(false);
         } catch (error) {
             console.log(error)
+            showNotification('error', 'Something Went Wrong!', 2000, 'top', 'Something Went Wrong!!');
+
         }
     }
 

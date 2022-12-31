@@ -9,8 +9,7 @@ const OrderForm = () => {
     }
 
     const handleMessage = () => {
-        window.location.href = `https://api.whatsapp.com/send?phone=918582042402&text=Hi , My name is test`
-
+        window.location.href = `https://api.whatsapp.com/send?phone=918582042402&text=Hey , I have a query ->  `
     }
     return (
         <form >

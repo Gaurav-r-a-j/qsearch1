@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useContext, useEffect, useMemo, useState } from 'react';
 import './SinglePostPage.css';
 import { Link, useParams } from 'react-router-dom';
 import api from '../../axios';
@@ -7,6 +7,7 @@ import { useSelector } from 'react-redux';
 import axios from 'axios';
 import { useRef } from 'react';
 import { getTimeAgo } from '../../generic_functions/smallFunctions';
+import { NotificationContext } from '../../components/CustomNotification/CustomNotification';
 
 function SinglePostPage() {
   const [post, setPost] = useState(null);
@@ -133,6 +134,9 @@ function SinglePostPage() {
 
 
 export const EditPostForm = ({ post, closeEdit, setPost }) => {
+
+  const { showNotification } = useContext(NotificationContext)
+
   // Use the useState hook to manage the form data
   const [formData, setFormData] = useState({
     postImg: post.postImg,
@@ -162,10 +166,12 @@ export const EditPostForm = ({ post, closeEdit, setPost }) => {
         }
       };
       const response = await axios.put(`https://qsearch.onrender.com/api/post/posts/${post._id}`, data, config);
+      showNotification('success', 'Post Edited Successfully!', 2000, 'top', 'Post Edited Successfully!');
       return response.data;
 
     } catch (error) {
       console.error(error);
+      showNotification('error', 'Something Went Wrong!', 2000, 'top', 'Something Went Wrong!');
       throw error;
     }
   };

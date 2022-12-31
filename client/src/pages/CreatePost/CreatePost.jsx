@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './CreatePost.css'
+import { useContext } from 'react';
+import { NotificationContext } from '../../components/CustomNotification/CustomNotification';
 
 const CreatePost = () => {
 
-    const [success, setSuccess] = useState(false)
+    const { showNotification } = useContext(NotificationContext)
     const [formData, setFormData] = useState({
         postImg: '',
         category: '',
@@ -54,11 +56,13 @@ const CreatePost = () => {
                 }
             };
             const response = await axios.post('https://qsearch.onrender.com/api/post/posts', data, config);
-            response.data && setSuccess(true)
+            showNotification('success', 'Post Created Successfully!', 2000, 'top', 'Post Created Successfully!');
             return response.data;
 
         } catch (error) {
             console.error(error);
+            showNotification('error', 'Something Went Wrong!', 2000, 'top', 'Something Went Wrong!');
+
             throw error;
         }
     };
@@ -108,9 +112,6 @@ const CreatePost = () => {
     return (
 
         <>
-                <h2>
-                    {success && "post created Successfully" }
-                </h2>
             <div className="create_post_container">
 
                 <form className='form_container' onSubmit={handleSubmit}>
