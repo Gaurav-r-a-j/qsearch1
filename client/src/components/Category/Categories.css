@@ -1,0 +1,154 @@
+.categories {
+    display: flex;
+    height: 80vh;
+    gap: 10px;
+    /* max-width: 1500px;
+    margin: 10px;
+    padding: 20px;
+    margin-inline: auto; */
+}
+
+.categories a {
+    color: white;
+}
+
+
+.categories .col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border-radius: 10px;
+    /* overflow: hidden; */
+}
+
+.categories .col_l {
+    /* border-radius: 10px; */
+    flex: 2;
+}
+
+
+.categories .row {
+
+    flex: 1;
+    display: flex;
+    gap: 10px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.categories .row a {
+    position: absolute;
+    min-width: 100px;
+    width: fit-content;
+    height: 50px;
+    padding: 20px;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    cursor: pointer;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+    text-transform: uppercase;
+    font-weight: 500;
+    color: white;
+
+    /* add a subtle gradient to the element */
+    background: linear-gradient(transparent, rgba(255, 255, 255, 0.1));
+    /* add a subtle box shadow */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* add a subtle border */
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    border-radius: 5px;
+    text-decoration: none;
+
+}
+
+.categories .row button {
+    text-transform: uppercase;
+    border: none;
+    background: transparent;
+    color: white;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+
+.categories img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: scale 0.3s ease-in-out;
+    background-color: gainsboro;
+    border-radius: 10px;
+}
+
+.categories .row img:hover {
+    border-radius: 10px !important;
+    scale: 1.1;
+}
+
+
+
+@media (max-width:900px) {
+    .categories {
+        flex-direction: column;
+        /* padding: 10px; */
+        height: max-content;
+    }
+
+    .categories .row button {
+        font-size: 14px;
+    }
+
+    .categories .big_row {
+        max-height: 40vh;
+    }
+
+    .categories .row {
+        max-height: 500px;
+    }
+
+    .categories .col {
+        flex-direction: row;
+    }
+
+    .categories .col_l {
+        flex-direction: column;
+    }
+
+    .categories .row a {
+        height: 40px;
+        padding: 5px;
+        font-size: 12px;
+        border-radius: 5px;
+    }
+}
+
+
+@media (max-width:600px) {
+
+    .categories .row button {
+        font-size: 12px;
+        font-weight: 700;
+    }
+}
+
+
+.categories .glassomorphism_card {
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    z-index: 1;
+    border-radius: 10px;
+}

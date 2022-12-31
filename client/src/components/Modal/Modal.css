@@ -1,0 +1,202 @@
+.modal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    z-index: 101;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+
+}
+
+.modal-content {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+    width: 450px;
+    max-width: 95%;
+    max-height: 90%;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px;
+    position: relative;
+
+    /* background: rgba(244, 228, 228, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(9px);
+    -webkit-backdrop-filter: blur(9px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18) */
+}
+
+.modal-title {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.form-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-control {
+    width: 100%;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-control label {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.form-control input {
+    font-size: 14px;
+    height: 40px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    padding: 0 10px;
+
+}
+
+.form-control input:focus {
+    outline: none;
+    border-color: #0066ff;
+}
+
+.form-actions {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-actions button {
+    font-size: 14px;
+    font-weight: 600;
+    height: 40px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 200ms ease;
+}
+
+.form-actions button:hover {
+    background-color: #0066ff;
+    color: #ffffff;
+}
+
+.form-actions button:active {
+    transform: scale(0.95);
+}
+
+.form-actions .primary-button {
+    padding: 0 20px;
+}
+
+.form-actions .secondary-button {
+    background-color: #ffffff;
+    color: #0066ff;
+    border: 1px solid #0066ff;
+    min-width: max-content;
+    padding: 10px;
+}
+
+.form-actions .secondary-button:hover {
+    background-color: #ffffff;
+    color: #0066ff;
+    border-color: #0066ff;
+}
+
+.form-actions .secondary-button:active {
+    background-color: #ffffff;
+    color: #0066ff;
+    border-color: #0066ff;
+}
+
+
+
+.close-button {
+    position: absolute;
+    color: #aaa;
+    right: 20px;
+    top: 10px;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+
+
+.password-container {
+    display: flex;
+    border-radius: 5px;
+    border: 1px solid #cccccc;
+}
+
+.password-container>input {
+    border: none;
+}
+
+.password-container input[type="password"],
+.password-container input[type="text"] {
+    flex: 1;
+}
+
+.password-container span {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    color: #666;
+    padding: 12px 10px;
+}
+
+
+.password-container:focus-within {
+    border: 1px solid #0066ff !important;
+
+}
+
+
+
+@media(max-width:600px){
+    .modal-content{
+        padding: 20px;
+    }
+}
+
+
+
+.form-actions button:disabled{
+    cursor: not-allowed;
+    color: gainsboro;
+    border: 1px solid gainsboro;
+}
+
+/* .form-control .password-container>input:focus> .password-container {
+    background: #0066ff;
+    border: 1px solid #0066ff !important;
+} */
+
+/* .password-container input[type="password"]:focus .password-container button,
+.password-container input[type="text"]:focus .password-container button {
+    display: none;
+} */

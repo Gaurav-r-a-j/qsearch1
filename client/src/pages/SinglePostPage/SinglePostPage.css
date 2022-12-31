@@ -1,0 +1,229 @@
+.single_post_container {
+  gap: 20px;
+  padding: 20px;
+  position: relative;
+  align-items: flex-start;
+  /* border: 1px solid red; */
+  min-height: 50vh;
+  /* margin-top: 200px; */
+  /* background-color: gainsboro; */
+}
+
+
+.single_post_container .left {
+  flex-basis: 75%;
+  /* background-color: gainsboro; */
+  padding: 20px;
+
+  /* min-height: 300vh; */
+}
+
+.single_post_container .right {
+  flex-basis: 25%;
+  background-color: #333;
+  /* width: 100%; */
+  max-height: 100vh;
+  min-height: 100vh;
+  position: sticky;
+  top: 70px;
+  padding: 20px;
+  align-items: flex-start !important;
+}
+
+.single_post_container .right aside h2 {
+  font-size: 24px;
+  margin-bottom: 20px !important;
+  padding: 10px;
+  text-align: center;
+  color: #BB004B;
+  background-color: white;
+}
+
+.single_post_container .right aside {
+  width: 100%;
+}
+
+.single_post_container .right ul {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  list-style: none;
+  gap: 10px;
+  width: 100%;
+}
+
+.single_post_container .right ul li {
+  width: 100%;
+  box-shadow: rgba(213, 216, 220, 0.25) 0px 1px 1px, rgba(226, 228, 232, 0.13) 0px 0px 1px 1px;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: all 0.3s;
+}
+
+.single_post_container .right ul li:hover {
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+
+.single_post_container .right ul a {
+  color: white;
+  text-decoration: none;
+  /* background-color: rebeccapurple; */
+  padding: 5px;
+}
+
+/* 
+.right aside{
+  position: sticky;
+  top: 0;
+} */
+
+
+.single_post img {
+  width: 500px;
+  float: right;
+  padding-left: 50px;
+  padding-bottom: 20px;
+}
+
+
+.single_post .title {
+  font-size: 2rem;
+  padding-bottom: 20px;
+
+
+}
+
+.single_post p {
+  text-align: justify;
+  white-space: pre-line;
+  font-size: 16px;
+  font-weight: 300;
+}
+
+.single_post p::first-line {
+  font-style: italic;
+  color: #333;
+}
+
+/* .single_post p{
+  columns: 150px 20px;
+} */
+
+.single_post .author_info {
+  padding: 20px 0;
+
+}
+
+@media(max-width:900px) {
+  .single_post_container {
+    gap: 5px;
+    padding: 10px;
+    flex-direction: column;
+  }
+
+  .single_post_container .left {
+    padding: 10px;
+    flex-basis: 100%;
+  }
+
+  .single_post_container .right {
+    display: flex;
+    gap: 10px;
+    min-height: 50px;
+    padding: 20px;
+    flex-wrap: wrap;
+    overflow: auto;
+    width: 100%;
+    top: 58px;
+    border-radius: 5px;
+
+  }
+
+  .single_post_container .left main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .single_post img {
+    padding: 0;
+    width: 100%;
+  }
+
+
+  .single_post .title {
+
+    font-size: 18px;
+    padding: 10px;
+  }
+
+}
+
+
+
+
+
+
+
+
+.edit-post-form {
+  /* Add some basic styling to the form */
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin: 0 auto;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+}
+
+.edit-post-form label {
+  /* Style the labels */
+  display: block;
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.edit-post-form input[type="text"],
+.edit-post-form textarea {
+  /* Style the text input fields */
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 8px;
+  font-size: 16px;
+}
+
+.edit-post-form input[type="file"] {
+  /* Style the file input field */
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 8px;
+  font-size: 16px;
+}
+
+.edit-post-form button[type="submit"] {
+  /* Style the submit button */
+  width: 100%;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 12px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+
+@media (max-width:700px){
+  .edit-post-form{
+    width: 90%;
+    margin: 20px 0;
+    margin-inline: auto;
+  }
+
+}
