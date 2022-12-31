@@ -1,5 +1,6 @@
 import React from "react";
 import "./Categories.css";
+import {Link} from 'react-router-dom'
 // import cat1 from '../../assets/cat1.png'
 // import cat2 from '../../assets/cat2.png'
 // import cat3 from '../../assets/cat3.png'
@@ -52,11 +53,11 @@ const Categories = () => {
                         src={"https://upload-print-blog.s3.ap-south-1.amazonaws.com/cat9.webp"}
                         alt=""
                     />
-                    <a href="/products/1" className="link">
+                    <Link to="/print" className="link">
                         <button>
-                            New Season
+                            print
                         </button>
-                    </a>
+                    </Link>
                 </div>
             </div>
 
@@ -71,9 +72,9 @@ const Categories = () => {
                                 src={"https://upload-print-blog.s3.ap-south-1.amazonaws.com/cat3.webp"}
                                 alt=""
                             />
-                            <a href="/products/1" className="link">
+                            <a rel="noopener noreferrer" target="blank" href="https://drive.google.com/drive/folders/1SKmAPoqS3dW3ruPtZGmN1-PjiZBwK5-u" className="link">
                                 <button>
-                                    Men
+                                    3rd YEAR
                                 </button>
                             </a>
                         </div>
@@ -85,9 +86,9 @@ const Categories = () => {
                                 src={"https://upload-print-blog.s3.ap-south-1.amazonaws.com/cat4.webp"}
                                 alt=""
                             />
-                            <a href="/products/1" className="link">
+                            <a rel="noopener noreferrer" target="blank" href="https://drive.google.com/drive/folders/1PPVFP4xPJcM6nGPnvV0FArsZ4CKm7B4D" className="link">
                                 <button>
-                                    Accessories
+                                    4TH YEAR
                                 </button>
                             </a>
                         </div>
@@ -102,9 +103,9 @@ const Categories = () => {
                         src={"https://upload-print-blog.s3.ap-south-1.amazonaws.com/cat10.webp"}
                         alt=""
                     />
-                    <a href="/products/1" className="link">
+                    <a href="/support" className="link">
                         <button>
-                            Shoes
+                            Technology
                         </button>
                     </a>
                 </div>

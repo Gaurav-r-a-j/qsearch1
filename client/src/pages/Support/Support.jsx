@@ -1,7 +1,6 @@
 import React, { } from 'react';
 import './Support.css';
 import Background from '../../components/Background/Background';
-import globe from '../../assets/4.jpeg'
 // import phone from '../../assets/phone.png'
 // import cat1 from '../../assets/cat1.png'
 import image32 from '../../assets/32.png'

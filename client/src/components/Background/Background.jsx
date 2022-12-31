@@ -1,6 +1,5 @@
 import React from 'react'
 import './Background.css'
-import boy from '../../assets/2.png'
 import Search from '../../components/Search/Search';
 // import globe from '../../assets/3.jpeg'
 
