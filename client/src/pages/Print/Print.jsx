@@ -27,7 +27,7 @@ const Print = () => {
 
                 <div className="left d-flex-center">
                     <figure>
-                        <img src={image42} alt="print file example" />
+                        <img src="https://upload-print-blog.s3.ap-south-1.amazonaws.com/42.webp" alt="print file example" />
                     </figure>
                 </div>
 

@@ -48,7 +48,7 @@ const Signup = ({ isOpen, setIsModalOpen }) => {
         // setError(false)
         // console.log(form)
         try {
-            const { data } = await api.post('http://localhost:5500/api/auth/signup', form)
+            const { data } = await api.post('https://qsearch.onrender.com/api/auth/signup', form)
             localStorage.setItem('token', JSON.stringify(data.token))
             // console.log(data)
             dispatch(setUser(data.user))

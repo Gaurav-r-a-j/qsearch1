@@ -3,7 +3,7 @@ import './Home.css'
 import Categories from '../../components/Category/Categories'
 import Posts from '../../components/Posts/Posts'
 import Background from '../../components/Background/Background'
-import globe from '../../assets/3.jpeg'
+// import globe from '../../assets/3.jpeg'
 
 
 
@@ -35,7 +35,8 @@ const Home = () => {
         <div className="home ">
             {/* <ImageSlider /> */}
             <Background
-                image={globe}
+                image1={"https://upload-print-blog.s3.ap-south-1.amazonaws.com/3.webp"}
+                image2={"https://upload-print-blog.s3.ap-south-1.amazonaws.com/2.webp"}
                 // image2={image30}
             />
             <section className="what_we_provide">

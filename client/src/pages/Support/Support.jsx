@@ -6,8 +6,6 @@ import globe from '../../assets/4.jpeg'
 // import cat1 from '../../assets/cat1.png'
 import image32 from '../../assets/32.png'
 import image33 from '../../assets/33.png'
-import image43 from '../../assets/43.png'
-import image45 from '../../assets/45.png'
 import cat1 from '../../assets/cat1.png'
 import Developers from './Developers';
 
@@ -20,8 +18,8 @@ const Support = () => {
     return (
         <div className="support_container">
             <Background
-                image={globe}
-                image2={image45}
+                image1={"https://upload-print-blog.s3.ap-south-1.amazonaws.com/4.jpeg"}
+                image2={"https://upload-print-blog.s3.ap-south-1.amazonaws.com/45.webp"}
             />
 
             <div className="main_support_options d-flex-center">
@@ -45,7 +43,7 @@ const Support = () => {
 
             <div className="support_sections">
                 <SupportSections
-                    image={image43}
+                    image="https://upload-print-blog.s3.ap-south-1.amazonaws.com/43.webp"
                     text1={
                         `We understand that as a student, you have a lot on your plate, and printing can be just one more thing to worry about. That's why we've created this service specifically for college students. With our fast, convenient, and affordable printing options, you can focus on your studies and leave the printing to us.`
                     }
