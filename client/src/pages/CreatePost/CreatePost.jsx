@@ -56,7 +56,7 @@ const CreatePost = () => {
                 }
             };
             const response = await axios.post('https://qsearch.onrender.com/api/post/posts', data, config);
-            showNotification('success', 'Post Created Successfully!', 2000, 'top', 'Post Created Successfully!');
+            response?.data && showNotification('success', 'Post Created Successfully!', 2000, 'top', 'Post Created Successfully!');
             return response.data;
 
         } catch (error) {

@@ -2,10 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './Developers.css'
 
-import dev1 from '../../assets/32.png'
 // import dev2 from '../../assets/33.png'
 import dev3 from '../../assets/43.png'
-import dev4 from '../../assets/45.png'
 
 function Developers() {
     return (
@@ -14,17 +12,17 @@ function Developers() {
             <div className="developers_grid ">
 
                 <SingleDeveloper
-                    image={dev1}
-                    name={"Developer 1"}
+                    image={"https://upload-print-blog.s3.ap-south-1.amazonaws.com/ayush.webp"}
+                    name={"Ayush Kumar"}
                 />
                 <SingleDeveloper
-                    image={dev4}
-                    name={"Developer 2"}
+                    image={"https://upload-print-blog.s3.ap-south-1.amazonaws.com/gaurav.webp"}
+                    name={"Gaurav raj"}
 
                 />
                 <SingleDeveloper
                     image={dev3}
-                    name={"Developer 3"}
+                    name={"Unknown"}
 
                 />
 
@@ -38,8 +36,8 @@ export const SingleDeveloper = ({ image, name, desc }) => {
     return (
         <div className="developer glassomorphism">
             <img src={image} alt="Profile pic of Developer 1" />
-            <h2>Developer 1</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <h2>{name}</h2>
+            <p>{desc}</p>
             <Link to="/developer1">View Profile</Link>
         </div>
     )
