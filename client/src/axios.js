@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-const BASE_URL = "http://localhost:5500/api"
+// const BASE_URL = "http://localhost:5500/api"
+const BASE_URL = "https://qsearch.onrender.com/api"
 
 
 
