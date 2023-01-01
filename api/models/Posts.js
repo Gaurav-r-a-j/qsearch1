@@ -23,13 +23,14 @@ const postSchema = new mongoose.Schema({
   author: {
     name: {
       type: String,
-      required: true
+      required: true,
+      default: "unknown"
     },
     image: {
       type: String,
     }
   },
-},{ timestamps: true });
+}, { timestamps: true });
 
 export default mongoose.model('Post', postSchema);
 

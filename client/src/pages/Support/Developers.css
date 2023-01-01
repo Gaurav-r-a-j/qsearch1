@@ -67,3 +67,11 @@
 .developers_grid .developer a:hover {
     background-color: #666;
 }
+
+
+.developer span{
+    color: gainsboro;
+    font-weight: 400;
+    font-size: 12px;
+    text-align: center;
+}

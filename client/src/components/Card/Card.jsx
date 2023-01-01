@@ -74,7 +74,7 @@ const Card = ({ postImg, title, desc, cat, author, slug, postId, postedAt }) => 
                 </div>
                 <div className="card_footer d-flex-spaceb">
                     <div className="user">
-                        <img src="https://i.pravatar.cc/40?img=1" alt="user__image" className="user__image" />
+                        <img src="https://upload-print-blog.s3.ap-south-1.amazonaws.com/ayush.webp" alt="user__image" className="user__image" />
                         <div className="user__info">
                             <h5>{author?.name ?? "unknown"}</h5>
                             <small>{getTimeAgo(postedAt)}</small>

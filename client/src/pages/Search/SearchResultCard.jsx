@@ -17,7 +17,7 @@ const SearchResultCard = ({ postImg, title, desc, cat, author, slug, postId }) =
 
                 <div className="card_footer search_result_card_footer">
                     <div className="user">
-                        <img src="https://i.pravatar.cc/40?img=1" alt="user__image" className="user__image" />
+                        <img src="https://upload-print-blog.s3.ap-south-1.amazonaws.com/ayush.webp" alt="user__image" className="user__image" />
                         <div className="user__info">
                             <h5>{author.name}</h5>
                             <small>2h ago</small>

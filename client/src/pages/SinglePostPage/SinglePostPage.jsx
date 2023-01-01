@@ -144,16 +144,42 @@ export const EditPostForm = ({ post, closeEdit, setPost }) => {
     title: post.title,
     url: post.url,
     desc: post.desc,
+    author: {
+      name: '',
+      image: ''
+    }
   });
 
 
   // Add an onChange event handler to update the form data as the user types
-  const handleChange = (event) => {
-    setFormData({
-      ...formData,
-      [event.target.name]: event.target.value,
-    });
+  // const handleChange = (event) => {
+  //   setFormData({
+  //     ...formData,
+  //     [event.target.name]: event.target.value,
+  //   });
+  // };
+
+  const handleChange = event => {
+    const { name, value } = event.target;
+    // console.log(name)
+    const fields = name.split('.');
+    // console.log(fields)
+    if (fields.length === 1) {
+      setFormData(prevData => ({
+        ...prevData,
+        [name]: value
+      }));
+    } else {
+      setFormData(prevData => ({
+        ...prevData,
+        [fields[0]]: {
+          ...prevData[fields[0]],
+          [fields[1]]: value
+        }
+      }));
+    }
   };
+
 
 
   // Make the API call to create a new post
@@ -202,6 +228,9 @@ export const EditPostForm = ({ post, closeEdit, setPost }) => {
       // Check if the desc field has changed
       if (formData.desc !== post.desc) {
         data.append('desc', formData.desc);
+      }
+      if (formData.author.name !== post?.author?.name) {
+        data.append('author.name', formData.author.name);
       }
       data.forEach((value, key) => {
         console.log(key, value);
@@ -273,6 +302,35 @@ export const EditPostForm = ({ post, closeEdit, setPost }) => {
         value={formData.desc}
       />
       <br />
+      <label htmlFor="author.name">Author Name:</label>
+      <input
+        type="text"
+        name="author.name"
+        id="author.name"
+        value={formData.author.name}
+        onChange={handleChange}
+
+      />
+      <br />
+      {/* <label htmlFor="author.image">Author Image:</label>
+      <input
+        type="file"
+        name="author.image"
+        id="author.image"
+        // onChange={handleChange}
+        onChange={(event) => {
+          setFormData({
+            ...formData,
+            author: {
+              ...formData.author,
+              image: event.target.files[0]
+            }
+          });
+        }}
+
+      />
+      <br /> */}
+
       <button type="submit">Update Post</button>
     </form>
   );
