@@ -67,6 +67,10 @@
     text-transform: uppercase;
 }
 
+.brand img{
+    width: 150px;
+}
+
 .menu {
     position: fixed;
     top: -100%;
@@ -275,5 +279,8 @@
     .burger {
         width: 1.5rem;
         height: 1rem;
+    }
+    .brand img{
+        width: 100px;
     }
 }

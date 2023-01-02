@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { setUser, clearUser } from '../../redux/userSlice'
 import api from '../../axios'
 import { NotificationContext } from '../CustomNotification/CustomNotification'
+import logo from '../../assets/logo.webp'
 
 const Navbar = () => {
   const { showNotification } = useContext(NotificationContext);
@@ -16,6 +17,7 @@ const Navbar = () => {
   const dispatch = useDispatch()
   const user = useSelector((state) => state.user)
   const location = useLocation()
+
   // console.log(user)
 
   const SignupModal = () => {
@@ -69,7 +71,10 @@ const Navbar = () => {
 
       <header className="header" id="header">
         <nav className="navbar container">
-          <Link to="/" className="brand"> qsearch </Link>
+          {/* <Link to="/" className="brand"> qsearch </Link> */}
+          <Link to="/" className="brand d-flex-center">
+            <img src={logo} alt="" />
+          </Link>
           <div
             onClick={handleBurger}
             className="burger" id="burger">
@@ -83,7 +88,9 @@ const Navbar = () => {
               <li className="menu_item"><Link to="/print" className={`menu_link ${location.pathname === '/print' ? 'active_link' : ''}`}>Print</Link></li>
               {/* <li className="menu_item"><Link to="/" className="menu_link">Products</Link></li> */}
               {/* <li className="menu_item"><Link to="/" className="menu_link">Reviews</Link></li> */}
-              <li className="menu_item"><Link to="/support" className={`menu_link ${location.pathname === '/support' ? 'active_link' : ''}`}>Support</Link></li>
+              <li className="menu_item">
+                <Link to="/support" className={`menu_link ${location.pathname === '/support' ? 'active_link' : ''}`}>Support</Link>
+              </li>
             </ul>
           </div>
           <div className="login_signup">
