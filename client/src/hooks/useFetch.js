@@ -32,3 +32,44 @@ const useFetch = (url, payload, headers) => {
 };
 
 export default useFetch;
+
+
+
+
+
+
+//
+
+const cache = new Map();
+export const useCustomQuery = (queryKey) => {
+    const [response, setResponse] = useState(null);
+    const [isLoading, setIsLoading] = useState(false);
+    const [error, setError] = useState(null);
+
+    useEffect(() => {
+
+        const fetchData = async () => {
+            if (cache.has(queryKey)) {
+                console.log('has')
+                setResponse(cache.get(queryKey));
+            } else {
+                setIsLoading(true);
+                try {
+                    // const response = axios.get(`https://my-api.com/endpoint/${queryKey}`);
+                    const response = await api.get(queryKey);
+                    cache.set(queryKey, response.data);
+                    setResponse(response.data);
+                    console.log(response.data)
+                } catch (error) {
+                    setError(error);
+                } finally {
+                    setIsLoading(false);
+                }
+            }
+        }
+        fetchData()
+
+    }, [queryKey]);
+
+    return { response, isLoading, error };
+}
