@@ -7,6 +7,7 @@ import image32 from '../../assets/32.png'
 import image33 from '../../assets/33.png'
 // import cat1 from '../../assets/cat1.png'
 import Developers from './Developers';
+import FAQ from '../../components/FAQ/FAQ';
 
 
 const Support = () => {
@@ -83,6 +84,8 @@ const Support = () => {
             <div className="developers">
                 <Developers />
             </div>
+
+            <FAQ />
 
 
         </div>

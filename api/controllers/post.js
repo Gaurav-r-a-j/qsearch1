@@ -51,6 +51,29 @@ const postController = {
             res.status(500).json({ error: 'An error occurred while retrieving the posts' });
         }
     },
+
+    getPostLimit: async (req, res) => {
+        try {
+            // Get the page number from the query parameters
+            // console.log(req.query.page)
+            const page = parseInt(req.query.page) || 1;
+
+            // Calculate the number of documents to skip
+            const skip = (page - 1) * 2;
+
+            // Get all posts from the database
+            const posts = await Post.find()
+                .sort({ createdAt: -1 })
+                .skip(skip)
+                .limit(2);
+            // console.log(posts)
+            res.json(posts);
+        } catch (error) {
+            console.error(error);
+            res.status(500).json({ error: 'An error occurred while retrieving the posts' });
+        }
+    },
+
     getPostsId: async (req, res) => {
         try {
             // Get all posts from the database
