@@ -6,63 +6,22 @@ import LoadingCard from '../Card/LoadingCard';
 import './Posts.css'
 
 
+
+// const fetchPosts = async (page) => {
+//     try {
+//         const res = await axios.get(`http://localhost:5500/api/posts/page?page=${page}`);
+//         const posts = res.data;
+//         return posts;
+//     } catch (error) {
+//         console.error(error);
+//     }
+// };
+
 // export const PostsContext = createContext(null);
 const Posts = () => {
     // const [posts, setPosts] = useState([]);
 
     const { response, isLoading } = useCustomQuery('/post/posts')
-    // const { response, isLoading } = useCustomQuery('/post/posts')
-
-    // const [page, setPage] = useState(1);
-    // const [posts, setPosts] = useState([]);
-    // const [isLoading, setIsLoading] = useState(false);
-    // const observer = useRef();
-    // const target = useRef();
-
-    // const onIntersect = useCallback((entries, observer) => {
-    //     entries.forEach(entry => {
-    //         if (entry.isIntersecting) {
-    //             // Increase the page number and fetch the next set of posts
-    //             // setPage(page + 1);
-    //             axios
-    //                 .get(`http://localhost:5500/api/post/posts/page?page=${page}`)
-    //                 .then(res => {
-    //                     setPosts(prevPosts => [...prevPosts, ...res.data]);
-    //                     setPage(page + 1);
-    //                 })
-    //                 .catch(err => console.error(err));
-    //         }
-    //     });
-    // }, [page]);
-
-    // useEffect(() => {
-    //     // Fetch the initial set of posts
-    //     axios
-    //         .get(`http://localhost:5500/api/post/posts/page?page=${page}`)
-    //         .then(res => setPosts(res.data))
-    //         .catch(err => console.error(err));
-
-    //     // Set up the IntersectionObserver
-    //     const options = {
-    //         root: null,
-    //         rootMargin: '0px',
-    //         threshold: 1.0,
-    //     };
-
-    //     // observer.current = new IntersectionObserver(onIntersect, options);
-    //     // observer.current.observe(observer.current.target);
-    //     observer.current = new IntersectionObserver(onIntersect, options);
-    //     observer.current.target = target.current;
-    //     observer.current.observe(observer.current.target);
-
-    //     return () => {
-    //         // Clean up the IntersectionObserver
-    //         observer.current.disconnect();
-    //     };
-
-    // }, [onIntersect,page]);
-
-
 
 
     return (
