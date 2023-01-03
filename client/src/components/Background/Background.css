@@ -19,6 +19,7 @@
 
 .background_image img {
     width: 100%;
+    
     /* animation: rotation 200s infinite linear; */
     animation: rotation 30s ease-in-out 1s infinite reverse both;
 
