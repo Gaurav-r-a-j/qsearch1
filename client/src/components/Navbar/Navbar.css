@@ -140,6 +140,11 @@
     transition: all 0.3s ease-in-out;
 }
 
+.login_signup button{
+    border: none;
+    outline: none;
+}
+
 
 
 .login_signup_btn{

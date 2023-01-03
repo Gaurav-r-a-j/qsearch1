@@ -21,11 +21,6 @@ import './Posts.css'
 //         console.error(error);
 //     }
 // };
-
-
-
-
-// export const PostsContext = createContext(null);
 const Posts = () => {
     // const [posts, setPosts] = useState([]);
     // const { response, isLoading } = useCustomQuery('/post/posts')
@@ -56,8 +51,8 @@ const Posts = () => {
         const fetchPosts = async () => {
             setIsLoading(true)
             try {
-                // const res = await axios.get(`http://localhost:5500/api/post/posts/page?page=${page}`);
-                const res = await axios.get(`https://qsearch.onrender.com/api/post/posts/page?page=${page}`);
+                const res = await axios.get(`http://localhost:5500/api/post/posts/page?page=${page}`);
+                // const res = await axios.get(`https://qsearch.onrender.com/api/post/posts/page?page=${page}`);
                 // console.log(posts,res.data)
                 setPosts(prevPosts => (prevPosts[0]?._id !== res.data[0]?._id) ? [...prevPosts, ...res.data] : [...prevPosts]);
                 setHasMore(res.data.length > 0);
@@ -152,17 +147,17 @@ const Posts = () => {
             {/* <div className='errorLoading'> */}
 
 
-                {isLoading && (
-                    <>
-                        <LoadingCard />
-                        <LoadingCard />
-                        <LoadingCard />
-                    </>
-                )}
+            {isLoading && (
+                <>
+                    <LoadingCard />
+                    <LoadingCard />
+                    <LoadingCard />
+                </>
+            )}
 
 
 
-                {/* {error &&
+            {/* {error &&
                     <pre>Error....</pre>
                 } */}
             {/* </div> */}

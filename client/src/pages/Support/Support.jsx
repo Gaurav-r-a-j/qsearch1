@@ -29,8 +29,8 @@ const Support = () => {
                     <img src={"https://upload-print-blog.s3.ap-south-1.amazonaws.com/girl.webp"} alt="" />
                     <h3> Assignments </h3>
                 </div>
-                <div className="support_image whatsapp_image">
-                    <img onClick={handleMessage} src={"https://upload-print-blog.s3.ap-south-1.amazonaws.com/whatsapp.webp"} alt="" />
+                <div onClick={handleMessage} className="support_image whatsapp_image">
+                    <img  src={"https://upload-print-blog.s3.ap-south-1.amazonaws.com/whatsapp.webp"} alt="" />
                     <h3> Whatsapp </h3>
                 </div>
                 <div className="support_image">

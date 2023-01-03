@@ -14,9 +14,12 @@ const Navbar = () => {
   const { showNotification } = useContext(NotificationContext);
   const [isSignupOpen, setIsSignupOpen] = useState(false);
   const [isLoginOpen, setIsLoginOpen] = useState(false);
+  const [loading, setLoading] = useState(true)
   const dispatch = useDispatch()
   const user = useSelector((state) => state.user)
   const location = useLocation()
+
+
 
   // console.log(user)
 
@@ -52,12 +55,15 @@ const Navbar = () => {
 
   useEffect(() => {
     const fetchUser = async () => {
+      setLoading(true)
       try {
         const { data } = await api.get("/auth/user")
         dispatch(setUser(data));
         console.log(data)
       } catch (error) {
-
+        console.error(error)
+      } finally {
+        setLoading(false)
       }
     }
     fetchUser()
@@ -99,22 +105,24 @@ const Navbar = () => {
                 ?
                 (
                   <>
-                    <div
+                    <button
+                      disabled={loading}
                       onClick={SignupModal}
                       className="menu_block login_signup_btn">Sign up
-                    </div>
-                    <div
+                    </button>
+                    <button
+                      disabled={loading}
                       onClick={LoginModal}
                       className="menu_block login_signup_btn">Login
-                    </div>
+                    </button>
                   </>
                 )
                 :
                 <>
-                  <div className=" user_found menu_block ">
+                  <button className=" user_found menu_block ">
                     {user?.name.split(' ')[0]}
-                  </div>
-                  <div
+                  </button>
+                  <button
                     onClick={() => {
                       localStorage.removeItem('token')
                       dispatch(clearUser())
@@ -122,7 +130,7 @@ const Navbar = () => {
                     }}
                     className=" user_found menu_block user_logout ">
                     Logout
-                  </div>
+                  </button>
                 </>
             }
 
