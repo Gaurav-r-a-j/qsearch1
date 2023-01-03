@@ -51,8 +51,8 @@ const Posts = () => {
         const fetchPosts = async () => {
             setIsLoading(true)
             try {
-                const res = await axios.get(`http://localhost:5500/api/post/posts/page?page=${page}`);
-                // const res = await axios.get(`https://qsearch.onrender.com/api/post/posts/page?page=${page}`);
+                // const res = await axios.get(`http://localhost:5500/api/post/posts/page?page=${page}`);
+                const res = await axios.get(`https://qsearch.onrender.com/api/post/posts/page?page=${page}`);
                 // console.log(posts,res.data)
                 setPosts(prevPosts => (prevPosts[0]?._id !== res.data[0]?._id) ? [...prevPosts, ...res.data] : [...prevPosts]);
                 setHasMore(res.data.length > 0);
