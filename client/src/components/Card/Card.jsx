@@ -81,9 +81,15 @@ const Card = ({ postImg, title, desc, cat, author, slug, postId, postedAt }) => 
                         </div>
                     </div>
 
-                    <button className="read_more_btn">
-                        <Link to={`/post/${postId}`}>Read More </Link>
-                    </button>
+                    {(slug === "" || null || undefined) ?
+                        (<button className="read_more_btn">
+                            <Link to={`/post/${postId}`}>Read More </Link>
+                        </button>)
+                        :
+                        (<button className="read_more_btn url_btn">
+                            <a href={`${slug}`}> Explore </a>
+                        </button>)
+                    }
                 </div>
             </div>
 

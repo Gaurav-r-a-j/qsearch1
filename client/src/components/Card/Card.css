@@ -20,6 +20,7 @@
 }
 
 
+
 .read_more_btn {
     border: none;
     background: transparent;
@@ -40,6 +41,10 @@
     transition: all 0.3s ease;
     background-color: #BB004B;
     color: white;
+}
+
+.url_btn a{
+    background: #000365 !important;
 }
 
 .card {
