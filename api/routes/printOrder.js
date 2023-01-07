@@ -7,6 +7,7 @@ const router = express.Router();
 
 
 router.post('/orders', verifyToken, upload.single('fileUrl'), awsUpload ,orderPrintController.createOrder);
+// router.post('/orders', upload.single('fileUrl'), awsUpload, orderPrintController.createOrder);
 
 
 router.put('/orders/:orderId', verifyToken, orderPrintController.updateOrder);

@@ -105,6 +105,7 @@ const PrintOrderForm = () => {
                 }
             };
             const response = await axios.post('https://qsearch.onrender.com/api/order/orders', data, config);
+            // const response = await axios.post('http://localhost:5500/api/order/orders', data, config);
             stripeSubmit(response.data.totalCost)
 
             setIsLoading(false)
@@ -136,11 +137,12 @@ const PrintOrderForm = () => {
             };
 
             // Send request to create payment on backend server
+            // const { data } = await axios.post('http://localhost:5500/create-checkout-session', paymentData);
             const { data } = await api.post('/create-checkout-session', paymentData);
 
             // Load Stripe library
             console.log(data)
-            const stripe = await loadStripe('pk_live_51LbfH4SBb75IOhndCV6AZUBshONgtDq7bhTzwrYXVCByr9ZvKl1tx5wasSAu14IQz3t98TLj5kuM3P6fUZioAkim00bynxRzF9');
+            const stripe = await loadStripe('pk_test_51LbfH4SBb75IOhndCV6AZUBshONgtDq7bhTzwrYXVCByr9ZvKl1tx5wasSAu14IQz3t98TLj5kuM3P6fUZioAkim00bynxRzF9');
             setIsLoading(false)
             // Redirect to default Stripe checkout page
             const result = await stripe.redirectToCheckout({
