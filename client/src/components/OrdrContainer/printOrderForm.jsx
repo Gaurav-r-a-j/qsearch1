@@ -140,7 +140,7 @@ const PrintOrderForm = () => {
 
             // Load Stripe library
             console.log(data)
-            const stripe = await loadStripe('pk_test_51LbfH4SBb75IOhndwJlysAKUhmwF0jGz2HJFbFhfc0QDJFAQAACBVjRcGaJP8m8D4JI1U6U19YNN20jxpY3STEvK00cdctDwtx');
+            const stripe = await loadStripe('pk_live_51LbfH4SBb75IOhndCV6AZUBshONgtDq7bhTzwrYXVCByr9ZvKl1tx5wasSAu14IQz3t98TLj5kuM3P6fUZioAkim00bynxRzF9');
             setIsLoading(false)
             // Redirect to default Stripe checkout page
             const result = await stripe.redirectToCheckout({
