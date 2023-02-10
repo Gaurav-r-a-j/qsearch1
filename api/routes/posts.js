@@ -10,6 +10,7 @@ const router = express.Router();
 
 router.get('/posts', postController.getAll);
 router.get('/posts/page', postController.getPostLimit);
+router.get("/categories", postController.getPostCategories);
 router.get('/postsId', postController.getPostsId);
 router.get('/posts/:id', postController.getById);
 router.get('/search', postController.searchPosts);

@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './Home.css'
 import Categories from '../../components/Category/Categories'
 import Posts from '../../components/Posts/Posts'
 import Background from '../../components/Background/Background'
+import api from '../../axios'
 // import globe from '../../assets/3.jpeg'
 
 
@@ -27,15 +28,26 @@ const Home = () => {
     //     speakWelcome()
     // }, [])
 
-    const [cat, setCat] = useState("all")
+    const [cat, setCat] = useState("")
+    const [page, setPage] = useState(1);
     const [categories, setCategories] = useState([])
 
     console.log(categories)
 
     const handleCat = (e) => {
+        setPage(1)
         setCat(e.target.value)
         console.log(e.target)
     }
+
+    useEffect(() => {
+        const fetchCategories = async () => {
+            const { data } = await api.get('/post/categories')
+            console.log(data.categories)
+            setCategories(data?.categories)
+        }
+        fetchCategories()
+    }, [])
 
     // console.log(window)
 
@@ -69,17 +81,21 @@ const Home = () => {
                     Categories
                 </h2>
                 <div className="all_categories">
-                    <button onClick={handleCat} className={`single_cat ${(cat === 'all') ? 'active-category' : ""}`} value={'all'}>All</button>
+                    <button onClick={handleCat} className={`single_cat ${(cat === '') ? 'active-category' : ""}`} value={''}>All</button>
 
                     {
-                        categories.map(item => (
+                        categories?.map(item => (
                             <button onClick={handleCat} className={`single_cat ${(item === cat) ? 'active-category' : ""}`} value={item}>{item}</button>
                         ))
                     }
                 </div>
                 <div className="what_we_provide explore_more">
-                    <h2> {cat.toUpperCase()} CONTENT </h2>
-                    <Posts cat={cat} setCategories={(data) => setCategories(data)} />
+                    <h2> {cat !== "" ? cat.toUpperCase() : "All"} CONTENT </h2>
+                    <Posts
+                        page={page}
+                        setPage={(data) => setPage(data)}
+                        cat={cat}
+                    />
                 </div>
             </section>
 

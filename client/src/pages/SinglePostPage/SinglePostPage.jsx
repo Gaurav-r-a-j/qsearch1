@@ -192,8 +192,8 @@ export const EditPostForm = ({ post, closeEdit, setPost }) => {
           'Content-Type': 'multipart/form-data'
         }
       };
-      const response = await axios.put(`http://localhost:5500/api/post/posts/${post._id}`, data, config);
-      // const response = await axios.put(`https://qsearch.onrender.com/api/post/posts/${post._id}`, data, config);
+      // const response = await axios.put(`http://localhost:5500/api/post/posts/${post._id}`, data, config);
+      const response = await axios.put(`https://qsearch.onrender.com/api/post/posts/${post._id}`, data, config);
       showNotification('success', 'Post Edited Successfully!', 2000, 'top', 'Post Edited Successfully!');
       return response.data;
 

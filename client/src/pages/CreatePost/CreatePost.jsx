@@ -60,8 +60,8 @@ const CreatePost = () => {
                     // 'Content-Type': 'multipart/form-data'
                 }
             };
-            // const response = await axios.post('https://qsearch.onrender.com/api/post/posts', data, config);
-            const response = await axios.post('http://localhost:5500/api/post/posts', data, config);
+            const response = await axios.post('https://qsearch.onrender.com/api/post/posts', data, config);
+            // const response = await axios.post('http://localhost:5500/api/post/posts', data, config);
             response?.data && showNotification('success', 'Post Created Successfully!', 2000, 'top', 'Post Created Successfully!');
             return response.data;
 

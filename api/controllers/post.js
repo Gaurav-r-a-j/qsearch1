@@ -122,6 +122,7 @@ const postController = {
             res.status(500).json({ error: 'An error occurred while retrieving the post' });
         }
     },
+
     update: async (req, res) => {
         try {
             // Find the post with the matching id and update its fields
@@ -192,7 +193,25 @@ const postController = {
             console.error(error);
             res.status(500).send({ error: 'An error occurred while searching the posts' });
         }
+    },
+
+    getPostCategories: async (req, res) => {
+        try {
+            // Find all unique categories in the posts collection
+            const categories = await Post.distinct("category");
+
+            if (!categories) {
+                return res.status(404).json({ error: 'No categories found' });
+            }
+            console.log(categories)
+
+            res.json({ categories });
+        } catch (error) {
+            console.error(error);
+            res.status(500).json({ error: 'An error occurred while retrieving the categories' });
+        }
     }
+
 
 
 };
