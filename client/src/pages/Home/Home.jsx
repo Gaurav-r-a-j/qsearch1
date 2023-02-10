@@ -1,4 +1,4 @@
-import React, {  } from 'react'
+import React, { useState } from 'react'
 import './Home.css'
 import Categories from '../../components/Category/Categories'
 import Posts from '../../components/Posts/Posts'
@@ -27,8 +27,17 @@ const Home = () => {
     //     speakWelcome()
     // }, [])
 
+    const [cat, setCat] = useState("all")
+    const [categories, setCategories] = useState([])
 
-    console.log(window)
+    console.log(categories)
+
+    const handleCat = (e) => {
+        setCat(e.target.value)
+        console.log(e.target)
+    }
+
+    // console.log(window)
 
 
     return (
@@ -44,10 +53,47 @@ const Home = () => {
                 <Categories />
             </section>
 
-            <section className="what_we_provide explore_more">
-                <h2>Explore More</h2>
-                <Posts />
+
+
+            {/* <div className="print_ads d-flex-center">
+                <img src="https://upload-print-blog.s3.ap-south-1.amazonaws.com/print_banner.png" usemap="#image-map" />
+
+                <map name="image-map">
+                    <area target="" alt="print add" title="print now" href="print" coords="142,316,474,382" shape="rect" />
+                </map>
+            </div> */}
+
+
+            <section className="select_category ">
+                <h2 className="categories_heading">
+                    Categories
+                </h2>
+                <div className="all_categories">
+                    <button onClick={handleCat} className={`single_cat ${(cat === 'all') ? 'active-category' : ""}`} value={'all'}>All</button>
+
+                    {
+                        categories.map(item => (
+                            <button onClick={handleCat} className={`single_cat ${(item === cat) ? 'active-category' : ""}`} value={item}>{item}</button>
+                        ))
+                    }
+                </div>
+                <div className="what_we_provide explore_more">
+                    <h2> {cat.toUpperCase()} CONTENT </h2>
+                    <Posts cat={cat} setCategories={(data) => setCategories(data)} />
+                </div>
             </section>
+
+
+
+            {/* <section className="what_we_provide explore_more">
+                <h2> SSTARX CONTENT </h2>
+                <Posts url={true} cat='sstarx' />
+            </section> */}
+
+            {/* <section className="what_we_provide explore_more">
+                <h2> Explore  More </h2>
+                <Posts url={false} />
+            </section> */}
         </div>
     )
 }

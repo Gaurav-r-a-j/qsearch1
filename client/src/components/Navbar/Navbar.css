@@ -1,6 +1,6 @@
 .header {
     /* padding: 0 5%; */
-    font-family: "Rubik", sans-serif;
+    /* font-family: "Rubik", sans-serif; */
     font-size: clamp(1rem, 2vw, 1.125rem);
     font-weight: 400;
     line-height: 1.5;
@@ -48,7 +48,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: flex-start;
+    /* justify-content: flex-start; */
     column-gap: 1rem;
     width: 100%;
     height: 4.25rem;
@@ -77,7 +77,7 @@
     left: 0;
     width: 100%;
     height: auto;
-    padding: 4rem 0 3rem;
+    /* padding: 4rem 0 3rem; */
     overflow: hidden;
     background-color: var(--color-black-300);
     box-shadow: var(--shadow-medium);
@@ -94,6 +94,7 @@
 .menu.is-active {
     top: 0;
     width: 100%;
+    padding: 4rem 0 3rem;
     height: auto;
 }
 
@@ -131,8 +132,8 @@
     white-space: nowrap;
     text-align: center;
     margin-left: auto;
-    padding: 0.65rem 1.5rem;
-    border-radius: 3rem;
+    padding: 0.65rem 1.2rem;
+    border-radius: 5px;
     text-transform: capitalize;
     color: var(--color-white);
     background-color: var(--color-blue-600);
@@ -152,13 +153,14 @@
     cursor: pointer;
 }
 
-@media only screen and (min-width: 48rem) {
+@media only screen and (min-width: 766px) {
 
 
     .menu {
         position: relative;
         top: 0;
         width: auto;
+        transition: none;
         height: auto;
         padding: 0rem;
         margin-left: auto;
@@ -199,7 +201,7 @@
     transition: 0.35s ease;
 }
 
-@media only screen and (min-width: 48rem) {
+@media only screen and (min-width: 766px) {
     .burger {
         display: none;
         visibility: hidden;
@@ -253,7 +255,7 @@
 
     .login_signup {
         right: 20px;
-        position: fixed;
+        /* position: fixed; */
     }
 }
 

@@ -11,7 +11,7 @@ const NotificationProvider = ({ children }) => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setNotification(null);
-      }, notification ? notification.duration : 0);
+    }, notification ? notification.duration : 0);
     // }, 500000);
     return () => clearTimeout(timer);
   }, [notification]);
@@ -44,6 +44,10 @@ const NotificationProvider = ({ children }) => {
   );
 };
 
+
+// const useCustomNotification = ()=>{
+//   const context = useContext()
+// }
 
 
 

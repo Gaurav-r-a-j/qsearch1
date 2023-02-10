@@ -62,10 +62,27 @@ const postController = {
             const skip = (page - 1) * 5;
 
             // Get all posts from the database
-            const posts = await Post.find()
-                .sort({ createdAt: -1 })
-                .skip(skip)
-                .limit(5);
+
+            let posts;
+            // console.log(req.query.cat)
+            if (req.query.cat) {
+                // console.log('if')
+                posts = await Post.find({ category: req.query.cat })
+                    .sort({ createdAt: -1 })
+                    .skip(skip)
+                    .limit(5);
+            } else {
+                posts = await Post.find()
+                    .sort({ createdAt: -1 })
+                    .skip(skip)
+                    .limit(5);
+            }
+
+            // const posts = await Post.find()
+            //     .sort({ createdAt: -1 })
+            //     .skip(skip)
+            //     .limit(5);
+
             // console.log(posts)
             res.json(posts);
         } catch (error) {
@@ -79,8 +96,11 @@ const postController = {
             // Get all posts from the database
             // const latestPost = await Post.find().sort({ createdAt: -1 }).limit(10);
             //only for _ids
+
             // const latestPostIds = await Post.find({}, { _id: 1 }).sort({ createdAt: -1 }).limit(10).then(posts => posts.map(post => post._id));
-            const latestPosts = await Post.find({}, { _id: 1, title: 1 }).sort({ createdAt: -1 }).limit(10);
+
+            // const latestPosts = await Post.find({}, { _id: 1, title: 1 }).sort({ createdAt: -1 }).limit(10);
+            const latestPosts = await Post.find({ url: { $eq: "" } }, { _id: 1, title: 1 }).sort({ createdAt: -1 }).limit(10);
 
 
             res.json(latestPosts);

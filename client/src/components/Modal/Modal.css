@@ -40,6 +40,7 @@
     font-weight: 600;
     margin-bottom: 20px;
     text-align: center;
+    text-transform: uppercase;
 }
 
 .form-container {
@@ -56,10 +57,17 @@
 }
 
 .form-control label {
-    font-size: 16px;
+    font-size: 12px;
+    color: rgb(36, 116, 213);
     margin-bottom: 5px;
 }
 
+.form-control label::after {
+    content: "*";
+    margin-left: 1px;
+    color: red;
+    /* add some margin between the label text and the colon */
+}
 .form-control input {
     font-size: 14px;
     height: 40px;
@@ -149,6 +157,8 @@
     display: flex;
     border-radius: 5px;
     border: 1px solid #cccccc;
+    align-items: center;
+    position: relative;
 }
 
 .password-container>input {
@@ -166,7 +176,9 @@
     cursor: pointer;
     font-size: 14px;
     color: #666;
-    padding: 12px 10px;
+    /* padding: 12px 10px; */
+    position: absolute;
+    right: 10px;
 }
 
 
@@ -177,15 +189,15 @@
 
 
 
-@media(max-width:600px){
-    .modal-content{
+@media(max-width:600px) {
+    .modal-content {
         padding: 20px;
     }
 }
 
 
 
-.form-actions button:disabled{
+.form-actions button:disabled {
     cursor: not-allowed;
     color: gainsboro;
     border: 1px solid gainsboro;

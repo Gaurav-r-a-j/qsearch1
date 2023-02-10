@@ -81,6 +81,7 @@ const Support = () => {
             <div className="support_sections">
                 <SupportSections
                     image="https://upload-print-blog.s3.ap-south-1.amazonaws.com/43.webp"
+                    heading={"Expert Support for All Your Needs"}
                     text1={
                         `We understand that as a student, you have a lot on your plate, and printing can be just one more thing to worry about. That's why we've created this service specifically for college students. With our fast, convenient, and affordable printing options, you can focus on your studies and leave the printing to us.`
                     }
@@ -91,6 +92,7 @@ const Support = () => {
                 />
                 <SupportSections
                     image={image32}
+                    heading={"Connecting You with the Right Resources"}
                     text1={
                         `
                         We're committed to providing excellent customer service, so if you have any questions or concerns, don't hesitate to reach out to us. We'll be happy to help you get the prints you need, when you need them.`
@@ -106,6 +108,7 @@ const Support = () => {
                 />
                 <SupportSections
                     image={image33}
+                    heading={"Assistance at Your Fingertips"}
                     liText1="Having trouble with your print order? Give us a buzz on WhatsApp and we'll sort it out for you!"
                     liText2="
                     Need some customization for your print job? Just drop us a message on WhatsApp and we'll make it happen!"
@@ -130,11 +133,11 @@ const Support = () => {
 
 
 
-export const SupportSections = ({ image, text1, text2, liText1, liText2, liText3, liText4 }) => {
+export const SupportSections = ({ image, heading, text1, text2, liText1, liText2, liText3, liText4 }) => {
     return (
         <div className="support_section d-flex-center">
             <div className="left d-flex-center ">
-                <h2>Get your support here</h2>
+                <h2>{heading}</h2>
                 <p>
                     {text1}
                 </p>

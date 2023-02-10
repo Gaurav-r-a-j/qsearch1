@@ -87,8 +87,8 @@ app.post('/api/create-checkout-session', async (req, res) => {
             mode: 'payment',
             // success_url: 'http://localhost:3001/success',
             // cancel_url: 'http://localhost:30001/cancel',
-            success_url: process.env.CLIENT_URL + "?success=true",
-            cancel_url: process.env.CLIENT_URL + "?success=false",
+            success_url: process.env.CLIENT_URL + 'order' + "?success=true",
+            cancel_url: process.env.CLIENT_URL + 'order' +"?success=false",
         });
 
         // const paymentIntent = await stripe.paymentIntents.retrieve(session.payment_intent);

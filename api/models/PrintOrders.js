@@ -48,7 +48,13 @@ const printOrderSchema = new mongoose.Schema({
     required: true,
     default: 'pending',
     enum: ['pending', 'processing', 'completed', 'cancelled']
+  },
+  isPaid: {
+    type: Boolean,
+    required: true,
+    default: false
   }
+
 }, { timestamps: true });
 
 

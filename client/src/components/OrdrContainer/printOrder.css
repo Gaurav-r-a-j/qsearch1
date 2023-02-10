@@ -23,7 +23,8 @@
     display: inline-block;
     padding: 10px 20px;
     border: none;
-    background-color: #333;
+    background-color: #dc3545;
+    transition: all 0.3s ease;
     color: #fff;
     cursor: pointer;
     font-size: 16px;
@@ -38,6 +39,8 @@
     display: flex;
 
 }
+
+
 
 .upload_button span {
     text-overflow: ellipsis;
@@ -140,9 +143,15 @@
     border-radius: 4px;
 }
 
+
 .order-button:hover {
-    background-color: #444;
+    background-color: hsl(0, 0%, 27%);
 }
+
+.order-button:disabled {
+    background-color: hsl(0, 0%, 27%, 0.7);
+}
+
 
 @media(max-width:700px) {
     .print_container .right {

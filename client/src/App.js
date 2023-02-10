@@ -15,6 +15,8 @@ import Support from './pages/Support/Support';
 import SearchResults from './pages/Search/SearchResult';
 import { useRef } from 'react';
 import Notification, { NotificationContext } from './components/CustomNotification/CustomNotification';
+import OrderSuccess from './pages/OrderSuccess/OrderSuccess';
+import ErrorPage from './pages/Error/ErrorPage';
 
 const Layout = () => {
   const topRef = useRef(null)
@@ -32,10 +34,12 @@ const Layout = () => {
 
 
 
+
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Layout />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: '/',
@@ -61,6 +65,11 @@ const router = createBrowserRouter([
         path: '/search',
         element: <SearchResults />
       },
+      {
+        path: '/order',
+        element: <OrderSuccess />
+      }
+      
 
       // {
       //   path: '/event/:event_name',

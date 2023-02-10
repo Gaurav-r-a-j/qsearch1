@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import api from '../../axios';
 import { setUser } from '../../redux/userSlice';
 import { NotificationContext } from '../CustomNotification/CustomNotification';
+import GoogleAuth from './GoogleAuth';
 import './Modal.css'
 
 const Login = ({ isOpen, setIsModalOpen }) => {
@@ -46,7 +47,8 @@ const Login = ({ isOpen, setIsModalOpen }) => {
         // setError(false)
         console.log(form)
         try {
-            const { data } = await api.post('https://qsearch.onrender.com/api/auth/login', form)
+            // const { data } = await api.post('https://qsearch.onrender.com/api/auth/login', form)
+            const { data } = await api.post('/auth/login', form)
             localStorage.setItem('token', JSON.stringify(data.token));
             // localStorage.setItem('user', JSON.stringify(data.user));
             // console.log(data)
@@ -105,6 +107,7 @@ const Login = ({ isOpen, setIsModalOpen }) => {
                                             id="password"
                                             value={form.password}
                                             onChange={handleInputChange}
+                                            autocomplete="current-password"
                                         />
                                         {/* <button type="button" onClick={togglePasswordVisibility}></button> */}
                                         {(!isPasswordVisible) ?
@@ -128,7 +131,8 @@ const Login = ({ isOpen, setIsModalOpen }) => {
                                 </div>
                                 <div className="form-actions">
                                     <button type="submit" className='primary-button'>Submit</button>
-                                    <button disabled={true} type="button" className="secondary-button">Login With Google</button>
+                                    {/* <button disabled={true} type="button" className="secondary-button">Login With Google</button> */}
+                                    <GoogleAuth/>
                                 </div>
                             </form>
                         </div>

@@ -75,64 +75,73 @@ const Navbar = () => {
       <Signup isOpen={isSignupOpen} setIsModalOpen={setIsSignupOpen} />
       <Login isOpen={isLoginOpen} setIsModalOpen={setIsLoginOpen} />
 
-      <header className="header" id="header">
-        <nav className="navbar container">
+      <header className="header " id="header">
+        <nav className="navbar container d-flex-spaceb">
           {/* <Link to="/" className="brand"> qsearch </Link> */}
-          <Link to="/" className="brand d-flex-center">
-            <img src={logo} alt="" />
-          </Link>
-          <div
-            onClick={handleBurger}
-            className="burger" id="burger">
-            <span className="burger_line"></span>
-            <span className="burger_line"></span>
-            <span className="burger_line"></span>
+
+          <div className="left d-flex-center gap1">
+
+            <Link to="/" className="brand d-flex-center">
+              <img src={logo} alt="" />
+            </Link>
+            <div
+              onClick={handleBurger}
+              className="burger" id="burger">
+              <span className="burger_line"></span>
+              <span className="burger_line"></span>
+              <span className="burger_line"></span>
+            </div>
+
           </div>
-          <div className="menu" id="menu">
-            <ul className="menu-inner">
-              <li className="menu_item"><Link to="/" className={`menu_link ${location.pathname === '/' ? 'active_link' : ''}`}>Home</Link></li>
-              <li className="menu_item"><Link to="/print" className={`menu_link ${location.pathname === '/print' ? 'active_link' : ''}`}>Print</Link></li>
-              {/* <li className="menu_item"><Link to="/" className="menu_link">Products</Link></li> */}
-              {/* <li className="menu_item"><Link to="/" className="menu_link">Reviews</Link></li> */}
-              <li className="menu_item">
-                <Link to="/support" className={`menu_link ${location.pathname === '/support' ? 'active_link' : ''}`}>Support</Link>
-              </li>
-            </ul>
-          </div>
-          <div className="login_signup">
-            {
-              (user?.name === undefined || null)
-                ?
-                (
+
+          <div className="right d-flex-center  gap1">
+
+            <div className="menu" id="menu">
+              <ul className="menu-inner">
+                <li className="menu_item"><Link to="/" className={`menu_link ${location.pathname === '/' ? 'active_link' : ''}`}>Home</Link></li>
+                <li className="menu_item"><Link to="/print" className={`menu_link ${location.pathname === '/print' ? 'active_link' : ''}`}>Print</Link></li>
+                {/* <li className="menu_item"><Link to="/" className="menu_link">Products</Link></li> */}
+                {/* <li className="menu_item"><Link to="/" className="menu_link">Reviews</Link></li> */}
+                <li className="menu_item">
+                  <Link to="/support" className={`menu_link ${location.pathname === '/support' ? 'active_link' : ''}`}>Support</Link>
+                </li>
+              </ul>
+            </div>
+            <div className="login_signup">
+              {
+                (user?.name === undefined || null)
+                  ?
+                  (
+                    <>
+                      <button
+                        disabled={loading}
+                        onClick={SignupModal}
+                        className="menu_block login_signup_btn">Sign up
+                      </button>
+                      <button
+                        disabled={loading}
+                        onClick={LoginModal}
+                        className="menu_block login_signup_btn">Login
+                      </button>
+                    </>
+                  )
+                  :
                   <>
-                    <button
-                      disabled={loading}
-                      onClick={SignupModal}
-                      className="menu_block login_signup_btn">Sign up
+                    <button className=" user_found menu_block ">
+                      {user?.name.split(' ')[0]}
                     </button>
                     <button
-                      disabled={loading}
-                      onClick={LoginModal}
-                      className="menu_block login_signup_btn">Login
+                      onClick={() => {
+                        localStorage.removeItem('token')
+                        dispatch(clearUser())
+                        showNotification('warning', 'Login Failed!', 2000, 'top', 'Logged out!');
+                      }}
+                      className=" user_found menu_block user_logout ">
+                      Logout
                     </button>
                   </>
-                )
-                :
-                <>
-                  <button className=" user_found menu_block ">
-                    {user?.name.split(' ')[0]}
-                  </button>
-                  <button
-                    onClick={() => {
-                      localStorage.removeItem('token')
-                      dispatch(clearUser())
-                      showNotification('warning', 'Login Failed!', 2000, 'top', 'Logged out!');
-                    }}
-                    className=" user_found menu_block user_logout ">
-                    Logout
-                  </button>
-                </>
-            }
+              }
+            </div>
 
           </div>
         </nav>

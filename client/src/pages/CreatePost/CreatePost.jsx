@@ -3,8 +3,13 @@ import axios from 'axios';
 import './CreatePost.css'
 import { useContext } from 'react';
 import { NotificationContext } from '../../components/CustomNotification/CustomNotification';
+import { useSelector } from 'react-redux';
+import ErrorPage from '../Error/ErrorPage';
 
 const CreatePost = () => {
+
+    const user = useSelector((state) => state.user)
+
 
     const { showNotification } = useContext(NotificationContext)
     const [formData, setFormData] = useState({
@@ -55,7 +60,8 @@ const CreatePost = () => {
                     // 'Content-Type': 'multipart/form-data'
                 }
             };
-            const response = await axios.post('https://qsearch.onrender.com/api/post/posts', data, config);
+            // const response = await axios.post('https://qsearch.onrender.com/api/post/posts', data, config);
+            const response = await axios.post('http://localhost:5500/api/post/posts', data, config);
             response?.data && showNotification('success', 'Post Created Successfully!', 2000, 'top', 'Post Created Successfully!');
             return response.data;
 
@@ -108,6 +114,14 @@ const CreatePost = () => {
 
 
 
+    if (user?.role !== "admin") {
+        return (
+            // {user && (
+            //     <Navigate to="/dashboard" replace={true} />
+            //   )}
+            <ErrorPage />
+        )
+    }
 
     return (
 

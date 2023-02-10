@@ -12,6 +12,22 @@
   /* border: 1px solid red; */
 }
 
+button{
+  outline: none;
+  background: transparent;
+}
+
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgb(216, 216, 216);
+  border-radius: 40px;
+}
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
 
 :root {
   --color-white-100: #fafafa;
@@ -42,6 +58,10 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.fd-col{
+  flex-direction: column;
 }
 
 .mtop {

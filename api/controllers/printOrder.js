@@ -4,7 +4,7 @@ import Order from "../models/PrintOrders.js";
 const orderPrintController = {
   createOrder: async (req, res) => {
 
-    console.log(req.body)
+    // console.log(req.body)
     if (!req.res.locals.fileUrl) {
       return res.status(400).send({ message: 'Missing required fields' });
     }
@@ -103,6 +103,34 @@ const orderPrintController = {
       res.status(500).json({ error: 'An error occurred while updating the order' });
     }
   },
+
+
+  updateIsPaid: async (req, res) => {
+    try {
+      // Find the print order with the specified ID
+      const order = await Order.findById(req.params.orderId);
+  
+      // Update the ispaid field and save the document
+      order.isPaid = true;
+      await order.save();
+  
+      // Return a success response
+      res.json({
+        success: true,
+        message: 'Print order marked as paid'
+      });
+    } catch (error) {
+      // Return an error response
+      res.status(400).json({
+        success: false,
+        message: 'Error updating ispaid field'
+      });
+    }
+  },
+  
+  
+  
+  
 
 
 

@@ -6,11 +6,12 @@ import { upload } from '../s3.js'
 const router = express.Router();
 
 
-router.post('/orders', verifyToken, upload.single('fileUrl'), awsUpload ,orderPrintController.createOrder);
+router.post('/orders', verifyToken, upload.single('fileUrl'), awsUpload, orderPrintController.createOrder);
 // router.post('/orders', upload.single('fileUrl'), awsUpload, orderPrintController.createOrder);
 
 
 router.put('/orders/:orderId', verifyToken, orderPrintController.updateOrder);
+router.patch('/orders/ispaid/:orderId', verifyToken, orderPrintController.updateIsPaid);
 
 router.get('/orders', verifyToken, orderPrintController.getUserOrders);
 

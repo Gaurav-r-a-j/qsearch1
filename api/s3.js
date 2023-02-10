@@ -20,7 +20,7 @@ AWS.config.update({
 
 // Middleware function to handle file uploads
 const awsUpload = (req, res, next) => {
-    console.log(req)
+    // console.log(req)
     // Upload the file to S3
     const s3 = new AWS.S3();
     const params = {

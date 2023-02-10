@@ -12,12 +12,14 @@ import User from '../models/User.js';
 const authController = {
     // Login method
     login: [
+
         // Validate the request body
         check('email').isEmail().withMessage('Please enter a valid email'),
         check('password').isLength({ min: 8 }).withMessage('Password must be at least 8 characters long'),
         // check('phoneNumber', 'Phone number must be 10 digits').isLength({ min: 10, max: 10 }),
 
         async (req, res) => {
+            
             const errors = validationResult(req);
             if (!errors.isEmpty()) {
                 return res.status(422).json({ errors: errors.array() });
@@ -138,6 +140,7 @@ const authController = {
 
     googleAuth: async (req, res) => {
         try {
+            // console.log(req)
             // Verify the token sent by the client
             const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
             const ticket = await client.verifyIdToken({
@@ -175,6 +178,7 @@ const authController = {
     authUser: async (req, res) => {
         try {
             // Find the user with the matching id
+            // console.log(req)
 
             const user = await User.findById(req.user.id).select(` -password -createdAt -updatedAt `);
             if (!user) {

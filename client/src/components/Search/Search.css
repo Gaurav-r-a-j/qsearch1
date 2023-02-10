@@ -1,5 +1,3 @@
-
-
 .main_search {
     width: 100%;
     background-color: white;
@@ -21,6 +19,11 @@
     border-radius: 5px;
 }
 
+
+.main_search:focus-within {
+    border: 1px solid #BB004B;
+}
+
 .main_search input {
     width: 100%;
     height: calc(inherit - 2px);
@@ -39,7 +42,7 @@
 }
 
 
-.search_button{
+.search_button {
     border: none;
     display: flex;
     background: transparent;

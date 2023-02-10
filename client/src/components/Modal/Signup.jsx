@@ -7,6 +7,8 @@ import './Modal.css'
 
 const Signup = ({ isOpen, setIsModalOpen }) => {
     const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+
+
     // const [error, setError] = useState(false);
     const { showNotification } = useContext(NotificationContext);
     const dispatch = useDispatch()
@@ -48,7 +50,8 @@ const Signup = ({ isOpen, setIsModalOpen }) => {
         // setError(false)
         // console.log(form)
         try {
-            const { data } = await api.post('https://qsearch.onrender.com/api/auth/signup', form)
+            // const { data } = await api.post('https://qsearch.onrender.com/api/auth/signup', form)
+            const { data } = await api.post('/auth/signup', form)
             localStorage.setItem('token', JSON.stringify(data.token))
             // console.log(data)
             dispatch(setUser(data.user))
@@ -63,7 +66,7 @@ const Signup = ({ isOpen, setIsModalOpen }) => {
 
         } catch (error) {
             console.log(error)
-            showNotification('error', `${error.response.data.error ?(error.response.data.error) :"Something Went Wrong"}`, 2000, 'top',`${error.response.data.error ?(error.response.data.error) :"Something Went Wrong"}`)
+            showNotification('error', `${error.response.data.error ? (error.response.data.error) : "Something Went Wrong"}`, 2000, 'top', `${error.response.data.error ? (error.response.data.error) : "Something Went Wrong"}`)
 
             // setError(true)
         }
@@ -75,14 +78,14 @@ const Signup = ({ isOpen, setIsModalOpen }) => {
             {isOpen && (
                 <div
                     onClick={() => setIsModalOpen(false)}
-                    className="modal glassomorphism">
+                    className="modal ">
                     <div
                         onClick={(e) => {
                             e.stopPropagation()
                         }}
                         className="modal-content">
                         <span className="close-button" onClick={closeModal}>&times;</span>
-                        <h2 className="modal-title">Login</h2>
+                        <h2 className="modal-title">Sign up</h2>
                         <div className="form-container">
                             <form onSubmit={handleSubmit} className="form-container">
                                 <div className="form-control">

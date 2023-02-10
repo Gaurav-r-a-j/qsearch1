@@ -20,6 +20,12 @@ export const generateOrderNumber = () => {
 
 export const calculatePrice = (pages, copies, sides, color, binding) => {
     let basePrice = pages * 1.50; // base price is $0.1 per page
+    if (pages <= 20) {
+        basePrice = pages * 1.75;
+    } else {
+        basePrice = pages * 1.50;
+    }
+
     if (sides === 'double') {
         basePrice *= 2; // double-sided prints cost twice as much as single-sided prints
     }
@@ -104,8 +110,8 @@ const PrintOrderForm = () => {
                     'Content-Type': 'multipart/form-data'
                 }
             };
-            const response = await axios.post('https://qsearch.onrender.com/api/order/orders', data, config);
-            // const response = await axios.post('http://localhost:5500/api/order/orders', data, config);
+            // const response = await axios.post('https://qsearch.onrender.com/api/order/orders', data, config);
+            const response = await axios.post('http://localhost:5500/api/order/orders', data, config);
             stripeSubmit(response.data.totalCost)
 
             setIsLoading(false)
@@ -142,13 +148,17 @@ const PrintOrderForm = () => {
 
             // Load Stripe library
             console.log(data)
-            const stripe = await loadStripe('pk_test_51LbfH4SBb75IOhndCV6AZUBshONgtDq7bhTzwrYXVCByr9ZvKl1tx5wasSAu14IQz3t98TLj5kuM3P6fUZioAkim00bynxRzF9');
+            // const stripe = await loadStripe('pk_test_51LbfH4SBb75IOhndCV6AZUBshONgtDq7bhTzwrYXVCByr9ZvKl1tx5wasSAu14IQz3t98TLj5kuM3P6fUZioAkim00bynxRzF9');
+            const stripe = await loadStripe('pk_test_51LbfH4SBb75IOhndwJlysAKUhmwF0jGz2HJFbFhfc0QDJFAQAACBVjRcGaJP8m8D4JI1U6U19YNN20jxpY3STEvK00cdctDwtx');
+
             setIsLoading(false)
             // Redirect to default Stripe checkout page
             const result = await stripe.redirectToCheckout({
                 // sessionId: data.stripeSession.id,
                 sessionId: data.sessionId,
             });
+
+            console.error("result", result)
 
             if (result.error) {
                 console.log(result)
@@ -287,6 +297,7 @@ const PrintOrderForm = () => {
 
             <button
                 onClick={handleSubmit}
+                disabled={selectedFile === null || pages === 0}
                 className="order-button">
                 {(isLoading || paymentLoading) ? 'Wait...' : "Order"}
             </button>
