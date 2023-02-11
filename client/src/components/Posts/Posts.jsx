@@ -1,4 +1,3 @@
-import axios from 'axios';
 import React, { memo, useCallback, useEffect, useRef, useState } from 'react'
 import api from '../../axios';
 // import { useCustomQuery } from '../../hooks/useFetch';

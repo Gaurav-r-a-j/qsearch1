@@ -203,7 +203,7 @@ const postController = {
             if (!categories) {
                 return res.status(404).json({ error: 'No categories found' });
             }
-            console.log(categories)
+            // console.log(categories)
 
             res.json({ categories });
         } catch (error) {

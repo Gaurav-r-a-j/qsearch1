@@ -47,7 +47,7 @@ const Card = ({ postImg, title, desc, cat, author, slug, postId, postedAt }) => 
 
             {modalOpen &&
                 (<DeleteModal
-                    postId={postId}
+                    text={"post"}
                     onConfirm={handleConfirm}
                     onCancel={handleCancel}
                 />)

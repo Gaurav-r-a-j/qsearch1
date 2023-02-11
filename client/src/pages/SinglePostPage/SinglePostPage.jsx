@@ -94,7 +94,14 @@ function SinglePostPage() {
                     <p className="single_post_category">Category: {post?.category}</p>
                   </>
                   {user.role === 'admin' && !isEditing && (
-                    <button onClick={() => setIsEditing(true)}>Edit</button>
+                    // <button onClick={() => setIsEditing(true)}>Edit</button>
+
+                    <span
+                      onClick={() => setIsEditing(true)}
+                      class="material-icons edit-post-btn">
+                      edit
+                    </span>
+
                   )}
                 </main>
               )}
@@ -300,6 +307,7 @@ export const EditPostForm = ({ post, closeEdit, setPost }) => {
       <textarea
         id="desc"
         name="desc"
+        rows={'5'}
         onChange={handleChange}
         value={formData.desc}
       />

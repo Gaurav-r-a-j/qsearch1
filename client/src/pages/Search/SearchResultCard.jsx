@@ -23,9 +23,19 @@ const SearchResultCard = ({ postImg, title, desc, cat, author, slug, postId }) =
                             <small>2h ago</small>
                         </div>
                     </div>
-                    <button className="read_more_btn ">
+                    {/* <button className="read_more_btn ">
                         <Link className='glassomorphism' to={`/post/${postId}`}>Read More </Link>
-                    </button>
+                    </button> */}
+
+                    {(slug === "" || null || undefined) ?
+                        (<button className="read_more_btn">
+                            <Link to={`/post/${postId}`}>Read More </Link>
+                        </button>)
+                        :
+                        (<button className="read_more_btn url_btn">
+                            <a href={`${slug}`}> Explore </a>
+                        </button>)
+                    }
                 </div>
             </div>
         </div>

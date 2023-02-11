@@ -1,0 +1,23 @@
+.order-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 50vh;
+}
+
+.order-details table {
+    margin-top: 20px;
+    border-collapse: collapse;
+    width: 60%;
+}
+
+.order-details td,
+.order-details th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.order-details th {
+    background-color: #ddd;
+}

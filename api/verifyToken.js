@@ -16,7 +16,7 @@ const verifyToken = (req, res, next) => {
   // Verify the token using the secret key
   jwt.verify(token, process.env.JWT_SECRET, (error, decoded) => {
     // If the token is invalid, return an error
-    console.log(error)
+    // console.log(error)
     if (error) {
       return res.status(401).json({ error: 'Invalid token' });
     }

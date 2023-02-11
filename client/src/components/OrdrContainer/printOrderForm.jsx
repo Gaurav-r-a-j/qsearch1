@@ -3,8 +3,22 @@ import React, { useEffect, useState } from 'react';
 import api from '../../axios';
 import './printOrder.css'
 import { loadStripe } from '@stripe/stripe-js';
+import { setCookie } from '../../generic_functions/smallFunctions';
+import { WhatsappButton } from './WhatsappButton';
 
 
+// // Store the session ID in the cache
+// const setSessionId = async (sessionId) => {
+//     const cache = await caches.open('session-id');
+//     await cache.put('session-id', new Response(sessionId));
+// };
+
+// // Retrieve the session ID from the cache
+// const getSessionId = async () => {
+//     const cache = await caches.open('session-id');
+//     const response = await cache.match('session-id');
+//     return response ? response.text() : null;
+// };
 
 export const generateOrderNumber = () => {
     // generate a random number between 1 and 1000000
@@ -54,6 +68,9 @@ const PrintOrderForm = () => {
     const [isLoading, setIsLoading] = useState(false);
     const [paymentLoading, setPaymentLoading] = useState(false);
 
+    // const user = useSelector((state) => state.user)
+
+
 
     useEffect(() => {
         const calculatedPrice = () => {
@@ -100,7 +117,7 @@ const PrintOrderForm = () => {
 
 
 
-    // Make the API call to create a new post
+    // Make the API call to create a new Order
     const createOrder = async (data) => {
         setIsLoading(true)
         try {
@@ -112,8 +129,7 @@ const PrintOrderForm = () => {
             };
             const response = await axios.post('https://qsearch.onrender.com/api/order/orders', data, config);
             // const response = await axios.post('http://localhost:5500/api/order/orders', data, config);
-            stripeSubmit(response.data.totalCost)
-
+            stripeSubmit(response.data.totalCost, response.data._id)
             setIsLoading(false)
             setIsOrder(true)
             return response.data;
@@ -133,21 +149,27 @@ const PrintOrderForm = () => {
 
 
 
-    const stripeSubmit = async (totalCost) => {
+    const stripeSubmit = async (totalCost, orderId) => {
         setPaymentLoading(true)
         try {
             // Create payment object with necessary information
             const paymentData = {
                 amount: totalCost,
                 paymentMethodType: 'card',
+                orderId
             };
 
             // Send request to create payment on backend server
             // const { data } = await axios.post('http://localhost:5500/create-checkout-session', paymentData);
             const { data } = await api.post('/create-checkout-session', paymentData);
 
-            // Load Stripe library
             console.log(data)
+            localStorage.setItem('sessionId', data.sessionId)
+            setCookie('sessionId', data.sessionId, 10)
+
+
+            // Load Stripe library
+
             // this is for live mode
             const stripe = await loadStripe('pk_live_51LbfH4SBb75IOhndCV6AZUBshONgtDq7bhTzwrYXVCByr9ZvKl1tx5wasSAu14IQz3t98TLj5kuM3P6fUZioAkim00bynxRzF9');
             // this is for test mode
@@ -237,16 +259,17 @@ const PrintOrderForm = () => {
                     <input type="file" id="file" style={{ display: 'none' }} onChange={handleFileChange} />
                 </div>
 
-                <div className="whatsapp_button d-flex-center">
+                {/* <div className="whatsapp_button d-flex-center">
                     <img src="https://ik.imagekit.io/faskf16pg/Branding/Main/whatapp-sharepal_6GcbqnN5e.png?ik-sdk-version=javascript-1.4.3&updatedAt=1657830361133" alt="" />
 
                     <a
-                        href="https://api.whatsapp.com/send?phone=918582042402&text=Hi , My name is test"
+                        href={`https://api.whatsapp.com/send?phone=918582042402&text=Hi , My name is ${user?.name} and I have query regarding Print.`}
                     >
                         Get Support
                     </a>
-                </div>
+                </div> */}
 
+                <WhatsappButton query={'I have query regarding Print'} />
             </div>
 
             <div className="print_order_input">
@@ -317,3 +340,6 @@ const PrintOrderForm = () => {
 }
 
 export default PrintOrderForm
+
+
+

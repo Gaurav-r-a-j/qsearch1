@@ -110,6 +110,7 @@
 
 .form-actions .primary-button {
     padding: 0 20px;
+    background-color: gainsboro;
 }
 
 .form-actions .secondary-button {

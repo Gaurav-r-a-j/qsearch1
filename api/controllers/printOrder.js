@@ -42,8 +42,7 @@ const orderPrintController = {
     }
   },
 
-
-
+  // this is to get the all orders realted to a user
   getUserOrders: async (req, res) => {
     try {
       if (req.user.role !== 'admin') {
@@ -56,6 +55,26 @@ const orderPrintController = {
       res.status(500).json({ error: 'An error occurred while retrieving the orders' });
     }
   },
+  
+
+  // this is to get the all orders 
+  getAllOrders: async (req, res) => {
+    try {
+    if (req.user.role !== 'admin') {
+    return res.status(401).json({ error: 'Unauthorized' });
+    }
+    // const allOrders = await Order.find({});
+    const allOrders = await Order.find({})
+    .populate('user', ['name', 'email'])
+    .sort({ createdAt: 'desc' })
+    .exec();
+
+    return res.status(200).json(allOrders);
+    } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'An error occurred while retrieving all orders' });
+    }
+    },
 
 
   getOrderById: async (req, res) => {
@@ -107,19 +126,33 @@ const orderPrintController = {
 
   updateIsPaid: async (req, res) => {
     try {
-      // Find the print order with the specified ID
-      const order = await Order.findById(req.params.orderId);
-  
-      // Update the ispaid field and save the document
-      order.isPaid = true;
-      await order.save();
-  
-      // Return a success response
-      res.json({
+    
+      const paymentIntent = req.paymentIntent;
+      const paymentStatus = req.paymentStatus;
+
+
+      if(paymentIntent==="succeeded" || paymentStatus==="paid"){
+        // Find the print order with the specified ID
+        const order = await Order.findById(req.params.orderId);
+        // Update the ispaid field and save the document
+        order.isPaid = true;
+        await order.save();
+
+        // Return a success response
+        res.status(200).json({
         success: true,
-        message: 'Print order marked as paid'
+        message: 'Payment completed successfully! '
       });
+      }else{
+        res.status(404).json({
+          success:false,
+          message: 'Payment not succeeded!'
+        });
+      }
+  
+
     } catch (error) {
+      console.error(error)
       // Return an error response
       res.status(400).json({
         success: false,

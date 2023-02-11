@@ -1,5 +1,8 @@
 
-app.post('/api/success', async (req, res) => {
+import stripeModule from 'stripe';
+const stripe = stripeModule(process.env.STRIPE_SECRET_KEY);
+
+export const paymentSucess = async (req, res) => {
     try {
         // Get the checkout session ID from the request body
         const sessionId = req.body.sessionId;
@@ -21,9 +24,9 @@ app.post('/api/success', async (req, res) => {
         console.error(error);
         res.status(500).send({ error });
     }
-});
+};
 
-app.post('/api/cancel', async (req, res) => {
+export const paymentFailure = async (req, res) => {
     try {
         // Get the checkout session ID from the request body
         const sessionId = req.body.sessionId;
@@ -38,4 +41,4 @@ app.post('/api/cancel', async (req, res) => {
         console.error(error);
         res.status(500).send({ error });
     }
-});
+};

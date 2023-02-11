@@ -63,9 +63,9 @@ app.use('/api/user', userRoutes);
 
 //stripe payment gateway
 const stripe = stripeModule(process.env.STRIPE_SECRET_KEY);
-
+//? this is to get stripe session or for stripe payment
 app.post('/api/create-checkout-session', async (req, res) => {
-    const { amount, paymentMethodType } = req.body;
+    const { amount, paymentMethodType, orderId } = req.body;
 
     try {
         // Create a new checkout session
@@ -85,17 +85,10 @@ app.post('/api/create-checkout-session', async (req, res) => {
                 },
             ],
             mode: 'payment',
-            // success_url: 'http://localhost:3001/success',
-            // cancel_url: 'http://localhost:30001/cancel',
-            success_url: process.env.CLIENT_URL + 'order' + "?success=true",
-            cancel_url: process.env.CLIENT_URL + 'order' +"?success=false",
+            success_url: process.env.CLIENT_URL + 'order/' + orderId + "?success=true",
+            cancel_url: process.env.CLIENT_URL + 'order/' + orderId + "?success=false",
         });
-
-        // const paymentIntent = await stripe.paymentIntents.retrieve(session.payment_intent);
-        console.log(session)
-        // console.log(session)
-
-        // Send the checkout session ID to the client
+        console.log(session.id)
         res.send({ sessionId: session.id });
     } catch (error) {
         console.error(error);
@@ -106,39 +99,6 @@ app.post('/api/create-checkout-session', async (req, res) => {
 
 
 
-
-
-// app.post('/api/payments', async (req, res) => {
-//     console.log(req.body)
-//     const { amount, paymentMethodType } = req.body;
-
-//     try {
-//         // Create a payment method using the Stripe library
-//         const paymentMethod = await stripe.paymentMethods.create({
-//             type: paymentMethodType,
-//             card: {
-//                 number: '4242 4242 4242 4242',
-//                 exp_month: 12,
-//                 exp_year: 2025,
-//                 cvc: '123'
-//             }
-//         });
-
-//         // Use the payment method's ID to create the PaymentIntent
-//         const paymentIntent = await stripe.paymentIntents.create({
-//             amount,
-//             currency: 'INR',
-//             payment_method: paymentMethod.id,
-//             confirmation_method: 'manual',
-//             confirm: true
-//         });
-
-//         res.send({ paymentIntent });
-//     } catch (error) {
-//         console.error(error);
-//         res.status(500).send({ error });
-//     }
-// });
 
 
 

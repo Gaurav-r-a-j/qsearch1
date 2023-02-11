@@ -120,6 +120,7 @@ const CreatePost = () => {
             //     <Navigate to="/dashboard" replace={true} />
             //   )}
             <ErrorPage />
+            
         )
     }
 
@@ -171,6 +172,7 @@ const CreatePost = () => {
                     <textarea
                         name="desc"
                         id="desc"
+                        rows={'5'}
                         value={formData.desc}
                         onChange={handleChange}
                     />

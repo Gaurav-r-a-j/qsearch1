@@ -17,6 +17,8 @@ import { useRef } from 'react';
 import Notification, { NotificationContext } from './components/CustomNotification/CustomNotification';
 import OrderSuccess from './pages/OrderSuccess/OrderSuccess';
 import ErrorPage from './pages/Error/ErrorPage';
+import OrderDetails from './pages/Orders/OrderDetails';
+import Orders from './pages/Orders/Orders';
 
 const Layout = () => {
   const topRef = useRef(null)
@@ -66,10 +68,18 @@ const router = createBrowserRouter([
         element: <SearchResults />
       },
       {
-        path: '/order',
+        path: '/order/:orderId',
         element: <OrderSuccess />
+      },
+      {
+        path: '/orders',
+        element: <Orders />
+      },
+      {
+        path: '/orders/:orderId',
+        element: <OrderDetails/>
       }
-      
+
 
       // {
       //   path: '/event/:event_name',

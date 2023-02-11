@@ -21,3 +21,45 @@ export const getTimeAgo = (timestamp) => {
     }
 }
 
+
+
+export function setCookie(cname, cvalue, exmins) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exmins * 60 * 1000));
+    var expires = "expires=" + d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
+// setCookie("sessionId", "someSessionIdValue", 2);
+
+// export const getCookie = (name) => {
+//     const cookies = document.cookie.split(';');
+//     for (let i = 0; i < cookies.length; i++) {
+//         const [cookieName, cookieValue] = cookies[i].trim().split('=');
+//         if (cookieName === name) {
+//             return cookieValue;
+//         }
+//     }
+//     return null;
+// }
+
+
+export function getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+
+// var sessionId = getCookie("sessionId");
+
+
