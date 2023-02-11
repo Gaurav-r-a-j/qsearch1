@@ -1,7 +1,7 @@
 import React, { } from 'react'
 import './Print.css'
 import svg2 from '../../assets/background2.svg'
-import PrintOrderForm from '../../components/OrdrContainer/PrintOrderForm'
+import PrintOrderForm from '../../components/OrdrContainer/printOrderForm'
 import Search from '../../components/Search/Search'
 
 
