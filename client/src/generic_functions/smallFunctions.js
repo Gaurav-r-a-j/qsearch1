@@ -23,12 +23,22 @@ export const getTimeAgo = (timestamp) => {
 
 
 
+// export function setCookie(cname, cvalue, exmins) {
+//     var d = new Date();
+//     d.setTime(d.getTime() + (exmins * 60 * 1000));
+//     var expires = "expires=" + d.toUTCString();
+//     document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+// }
+
 export function setCookie(cname, cvalue, exmins) {
     var d = new Date();
     d.setTime(d.getTime() + (exmins * 60 * 1000));
     var expires = "expires=" + d.toUTCString();
-    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+    var secure = window.location.protocol === 'https:' ? '; Secure' : '';
+    var sameSite = window.location.protocol === 'https:' ? '; SameSite=None' : '';
+    document.cookie = cname + "=" + cvalue + sameSite + secure + ";" + expires + ";path=/";
 }
+
 
 // setCookie("sessionId", "someSessionIdValue", 2);
 
