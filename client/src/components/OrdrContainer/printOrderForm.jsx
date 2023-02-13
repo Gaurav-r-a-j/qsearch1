@@ -166,7 +166,7 @@ const PrintOrderForm = () => {
             console.log(data)
             localStorage.setItem('sessionId', data.sessionId)
             setCookie('sessionId', data.sessionId, 10)
-            alert(data.sessionId)
+            // alert(data.sessionId)
 
 
             // Load Stripe library
