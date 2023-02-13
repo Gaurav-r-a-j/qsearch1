@@ -6,7 +6,7 @@
 
 .success-message h1,
 .error-message h1 {
-  font-size: 2rem;
+  font-size: 3rem;
 }
 
 .success-message p,
@@ -22,20 +22,24 @@
 }
 
 .order-nav-btn {
-  padding:5px 10px;
+  padding: 5px 10px;
   border-radius: 5px;
   cursor: pointer;
   background-color: white;
   border: none;
   width: 100px;
   transition: all 0.3s ease;
+  height: 40px;
+  font-size: 1rem;
+  margin-top: 10px;
 }
 
-.order-nav-btn a{
-  color: blue;
+.order-nav-btn a {
+  color: black;
+  text-decoration: none;
 }
 
-.order-nav-btn:hover{
+.order-nav-btn:hover {
   background-color: gainsboro;
 }
 
@@ -51,6 +55,7 @@
   background-color: #35297b;
   background-image: radial-gradient(circle farthest-corner at 32.7% 82.7%, rgba(173, 0, 171, 1) 8.3%, rgba(15, 51, 92, 1) 79.4%);
 
+  /* background: url('file:///Users/gauravkumar/Downloads/layered-waves-haikei%20(3).svg'); */
 }
 
 
@@ -82,7 +87,7 @@
   width: 100%;
   height: 100%;
   background-color: #861A96;
-
+  /* background-color: #462475; */
   border-radius: 50%;
 }
 
@@ -91,7 +96,7 @@
 
   .success-message h1,
   .error-message h1 {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
   }
 
   .success-message p,

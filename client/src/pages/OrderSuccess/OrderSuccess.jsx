@@ -133,7 +133,7 @@ const OrderSuccess = (props) => {
                                     </a>
                                 </div> */}
 
-                                <WhatsappButton query={` I need help regarding my order ${orderId}`}/>
+                                <WhatsappButton query={` I need help regarding my order ${orderId}`} />
                             </div>
 
                         </div>

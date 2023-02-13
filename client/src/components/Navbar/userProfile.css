@@ -1,0 +1,87 @@
+.user-profile {
+    width: 350px;
+    /* height: 400px; */
+    position: fixed;
+    right: 20px;
+    background-color: white;
+    z-index: 1000;
+    top: 68px;
+    right: 100px;
+    border-radius: 5px;
+    padding: 10px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    background-color: #242526;
+    color: #919295;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+
+.user-profile::before {
+    content: '';
+    position: absolute;
+    top: -18px;
+    right: 40px;
+    border: 10px solid;
+    border-color: transparent transparent #242526 transparent;
+
+}
+
+
+
+.profile-header {
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    background-color: inherit;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid #919295;
+}
+
+
+.profile-header img,
+.profile-header span {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: gainsboro;
+    font-size: 3rem;
+    color: royalblue;
+}
+
+
+.profile-dropdown {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.profile-dropdown p {
+    background-color: inherit;
+    /* padding: 10px 5px; */
+    border-radius: 5px;
+    transition: all 0.3s ease;
+
+}
+
+.profile-dropdown a{
+    text-decoration: none;
+    /* background-color: rebeccapurple; */
+    width: 100%;
+    padding: 10px 5px;
+    display: block;
+}
+
+.profile-dropdown a {
+    color: inherit;
+}
+
+.profile-header:hover,
+.profile-dropdown p:hover {
+    background-color: #3A3B3C;
+}

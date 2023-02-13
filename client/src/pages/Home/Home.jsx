@@ -32,7 +32,7 @@ const Home = () => {
     const [page, setPage] = useState(1);
     const [categories, setCategories] = useState([])
 
-    console.log(categories)
+    // console.log(categories)
 
     const handleCat = (e) => {
         setPage(1)

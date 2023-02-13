@@ -9,15 +9,18 @@ import { setUser, clearUser } from '../../redux/userSlice'
 import api from '../../axios'
 import { NotificationContext } from '../CustomNotification/CustomNotification'
 import logo from '../../assets/logo.webp'
+import UserProfile from './UserProfile'
 
 const Navbar = () => {
   const { showNotification } = useContext(NotificationContext);
   const [isSignupOpen, setIsSignupOpen] = useState(false);
+  const [userProfile, setUserProfile] = useState(false);
   const [isLoginOpen, setIsLoginOpen] = useState(false);
   const [loading, setLoading] = useState(true)
   const dispatch = useDispatch()
   const user = useSelector((state) => state.user)
   const location = useLocation()
+
 
 
 
@@ -74,6 +77,7 @@ const Navbar = () => {
     <>
       <Signup isOpen={isSignupOpen} setIsModalOpen={setIsSignupOpen} />
       <Login isOpen={isLoginOpen} setIsModalOpen={setIsLoginOpen} />
+      <UserProfile isOpen={userProfile} setIsProfileOpen={setUserProfile} />
 
       <header className="header " id="header">
         <nav className="navbar container d-flex-spaceb">
@@ -82,9 +86,10 @@ const Navbar = () => {
           <div className="left d-flex-center gap1">
 
             <Link to="/" className="brand d-flex-center">
-              <img src={logo} alt="" />
+              <img title='qsearch' src={logo} alt="" />
             </Link>
             <div
+              title='menu'
               onClick={handleBurger}
               className="burger" id="burger">
               <span className="burger_line"></span>
@@ -114,11 +119,13 @@ const Navbar = () => {
                   (
                     <>
                       <button
+                        title='Sign Up'
                         disabled={loading}
                         onClick={SignupModal}
                         className="menu_block login_signup_btn">Sign up
                       </button>
                       <button
+                        title='Login'
                         disabled={loading}
                         onClick={LoginModal}
                         className="menu_block login_signup_btn">Login
@@ -127,10 +134,17 @@ const Navbar = () => {
                   )
                   :
                   <>
-                    <button className=" user_found menu_block ">
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setUserProfile(prev => !prev)
+                      }}
+                      title={user?.name.split(' ')[0]}
+                      className=" user_found menu_block ">
                       {user?.name.split(' ')[0]}
                     </button>
                     <button
+                      title='Logout'
                       onClick={() => {
                         localStorage.removeItem('token')
                         dispatch(clearUser())

@@ -24,6 +24,7 @@ const Search = () => {
         // <div className="glassomorphism main_search">
         <form onSubmit={handleSubmit} className="glassomorphism main_search">
             <input
+                title='Search here'
                 value={query}
                 onChange={e => setQuery(e.target.value)}
                 type="search"

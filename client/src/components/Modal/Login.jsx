@@ -107,7 +107,7 @@ const Login = ({ isOpen, setIsModalOpen }) => {
                                             id="password"
                                             value={form.password}
                                             onChange={handleInputChange}
-                                            autocomplete="current-password"
+                                            autoComplete="current-password"
                                         />
                                         {/* <button type="button" onClick={togglePasswordVisibility}></button> */}
                                         {(!isPasswordVisible) ?

@@ -39,6 +39,7 @@ const postController = {
             res.status(500).json({ error: 'An error occurred while creating the post' });
         }
     },
+
     getAll: async (req, res) => {
         try {
             // Get all posts from the database
