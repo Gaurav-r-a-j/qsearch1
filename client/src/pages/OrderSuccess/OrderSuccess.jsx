@@ -58,7 +58,7 @@ const OrderSuccess = (props) => {
         navigate(-1);
     }
 
-    if (!getCookie('sessionId') && !localStorage.getItem('sessionId')) {
+    if (!getCookie('sessionId')) {
         return <ErrorPage />
     }
 
