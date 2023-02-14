@@ -12,6 +12,14 @@
     color: white;
 }
 
+.glassomorphism_car {
+    border: 1px solid #e2eaf0;
+    transition: all 0.3s ease;
+}
+
+.glassomorphism_car:hover {
+    box-shadow: 0 8px 14px 0 #bfcfdc;
+}
 
 .categories .col {
     flex: 1;

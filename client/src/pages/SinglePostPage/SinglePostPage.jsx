@@ -77,7 +77,7 @@ function SinglePostPage() {
           <div ref={topRef} className=" single_post_container d-flex-center">
 
 
-            <div className="left glassomorphism">
+            <div className="left ">
               {post && (
                 <main className="single_post ">
                   <div className="single_post_image">
@@ -108,7 +108,7 @@ function SinglePostPage() {
             </div>
 
 
-            <div className="right glassomorphism d-flex-center">
+            <div className="right  d-flex-center">
               <aside>
                 <h2 className='glassomorphism'>Latest Posts </h2>
                 <ul>

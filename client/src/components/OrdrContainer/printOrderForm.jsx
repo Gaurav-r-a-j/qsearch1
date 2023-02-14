@@ -55,6 +55,13 @@ export const calculatePrice = (pages, copies, sides, color, binding) => {
 
 
 
+// const removeNonDigits = (str) => {
+//     const regex = /[^\d]/g;
+//     const cleanedStr = str.replace(regex, '');
+//     return cleanedStr;
+//   }
+
+
 const PrintOrderForm = () => {
     const [selectedFile, setSelectedFile] = useState(null);
     const [pages, setPages] = useState(0);
@@ -67,6 +74,8 @@ const PrintOrderForm = () => {
     const [error, setError] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
     const [paymentLoading, setPaymentLoading] = useState(false);
+
+
 
     // const user = useSelector((state) => state.user)
 
@@ -87,9 +96,12 @@ const PrintOrderForm = () => {
         setSelectedFile(event.target.files[0]);
     }
 
+
     const handlePagesChange = (event) => {
         const value = event.target.value
+        // if (!/^\d+$/.test(value)) {
         setPages(value >= 0 ? event.target.value : 1)
+
     }
 
     const handleCopiesChange = (event) => {
@@ -130,17 +142,17 @@ const PrintOrderForm = () => {
             const response = await axios.post('https://qsearch.onrender.com/api/order/orders', data, config);
             // const response = await axios.post('http://localhost:5500/api/order/orders', data, config);
             stripeSubmit(response.data.totalCost, response.data._id)
-            setIsLoading(false)
             setIsOrder(true)
             return response.data;
 
 
         } catch (error) {
-            setIsLoading(false)
             setIsOrder(false)
             setError(true)
             console.error(error);
             throw error;
+        } finally {
+            setIsLoading(false)
         }
     };
 
@@ -221,8 +233,10 @@ const PrintOrderForm = () => {
         });
 
         try {
-            const order = await createOrder(formData);
-            console.log(order)
+            if (totalCost !== 0) {
+                const order = await createOrder(formData);
+            }
+            // console.log(order)
             // stirpeSubmit(order.totalCost)
             // Reset the form
             if (isOrder) {
@@ -324,7 +338,7 @@ const PrintOrderForm = () => {
 
             <button
                 onClick={handleSubmit}
-                disabled={selectedFile === null || pages === 0}
+                disabled={selectedFile === null || pages === 0 || totalCost === 0}
                 className="order-button">
                 {(isLoading || paymentLoading) ? 'Wait...' : "Order"}
             </button>

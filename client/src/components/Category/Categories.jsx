@@ -16,7 +16,7 @@ const Categories = () => {
             {/* calculate colums first then rows */}
             <div className="col">
                 {/* this is row 1 in col1*/}
-                <div className="row glassomorphism_card">
+                <div className="row glassomorphism_car">
                     <img
                         src={"https://upload-print-blog.s3.ap-south-1.amazonaws.com/cat1.webp"}
                         alt=""
@@ -30,7 +30,7 @@ const Categories = () => {
 
                 {/* this is row 2 in col 1 */}
 
-                <div className="row glassomorphism_card">
+                <div className="row glassomorphism_car">
                     <img
                         src={"https://upload-print-blog.s3.ap-south-1.amazonaws.com/cat2.webp"}
                         alt=""
@@ -47,7 +47,7 @@ const Categories = () => {
             <div className="col">
                 {/* this is row 1 in col 2*/}
 
-                <div className="row big_row glassomorphism_card">
+                <div className="row big_row glassomorphism_car">
                     {" "}
                     <img
                         src={"https://upload-print-blog.s3.ap-south-1.amazonaws.com/cat9.webp"}
@@ -67,7 +67,7 @@ const Categories = () => {
                 <div className="row">
 
                     <div className="col">
-                        <div className="row glassomorphism_card">
+                        <div className="row glassomorphism_car">
                             <img
                                 src={"https://upload-print-blog.s3.ap-south-1.amazonaws.com/cat3.webp"}
                                 alt=""
@@ -80,7 +80,7 @@ const Categories = () => {
                         </div>
                     </div>
                     <div className="col">
-                        <div className="row glassomorphism_card">
+                        <div className="row glassomorphism_car">
                             {" "}
                             <img
                                 src={"https://upload-print-blog.s3.ap-south-1.amazonaws.com/cat4.webp"}
@@ -98,7 +98,7 @@ const Categories = () => {
 
                 {/* this is row 2 in cols 3 */}
 
-                <div className="row glassomorphism_card">
+                <div className="row glassomorphism_car">
                     <img
                         src={"https://upload-print-blog.s3.ap-south-1.amazonaws.com/cat10.webp"}
                         alt=""

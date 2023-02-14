@@ -117,7 +117,13 @@ const Support = () => {
                 />
             </div>
 
-            <h2 className='special_text '> Need some help with your PDF assignments? We've got you covered. From proofreading to formatting, just drop us a message and we'll get it done for you.</h2>
+            <div className='seprator d-flex-center'>
+                <p className='special_text'>
+                    Need some help with your PDF assignments? We've got you covered. From proofreading to formatting, just drop us a message and we'll get it done for you.
+                </p>
+            </div>
+
+
 
             <div className="developers">
                 <Developers />

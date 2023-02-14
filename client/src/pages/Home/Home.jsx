@@ -67,6 +67,12 @@ const Home = () => {
 
 
 
+            <div className="seprator d-flex-center" >
+                <span>
+                    Welcome to Qsearch
+                </span>
+            </div>
+
             {/* <div className="print_ads d-flex-center">
                 <img src="https://upload-print-blog.s3.ap-south-1.amazonaws.com/print_banner.png" usemap="#image-map" />
 
@@ -113,5 +119,16 @@ const Home = () => {
         </div>
     )
 }
+
+// export const Seprator = ({ text, customClass }) => {
+//     return (
+
+//         <div className="seprator d-flex-center" >
+//             <span className={customClass}>
+//                 {text}
+//             </span>
+//         </div>
+//     )
+// }
 
 export default Home

@@ -40,7 +40,7 @@
     border-radius: 5px;
     cursor: pointer;
     transition: all 0.3s ease;
-    border-bottom: 1px solid #919295;
+    border-bottom: .1px solid #919295;
 }
 
 
@@ -84,4 +84,20 @@
 .profile-header:hover,
 .profile-dropdown p:hover {
     background-color: #3A3B3C;
+}
+
+
+@media(max-width:600px){
+    .user-profile{
+        right: 55px;
+        top: 55px;
+        width: 70%;
+        font-size: .8rem;
+    }
+
+    .profile-header img, .profile-header span{
+        width: 30px;
+        font-size: 25px;
+        height: 30px;
+    }
 }

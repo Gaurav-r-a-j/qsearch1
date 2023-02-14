@@ -121,9 +121,9 @@
 
 
 .special_text {
-    font-size: 1rem;
+    font-size: 1.5rem;
     margin-inline: auto;
-    color: teal;
+    color: #BB004B;
     width: 80%;
     text-align: center;
 }
@@ -173,11 +173,19 @@
 }
 
 
-.whatsapp_image{
+.whatsapp_image {
     cursor: pointer;
 }
 
 
+
+@media(max-width:800px) {
+    .special_text {
+        font-size: 1rem;
+    }
+
+
+}
 
 @media(max-width:800px) {
     .main_support_options {
