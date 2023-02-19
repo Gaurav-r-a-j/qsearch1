@@ -21,6 +21,12 @@ const Print = () => {
                 </div>
             </div>
 
+            <div className="print-ads-banner">
+                <figure>
+                    <img src="https://upload-print-blog.s3.ap-south-1.amazonaws.com/print24banner.gif" alt="" />
+                </figure>
+            </div>
+
             <div className="print_container">
 
 

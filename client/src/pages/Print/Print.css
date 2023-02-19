@@ -34,6 +34,23 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 
+.print-ads-banner {
+    /* width: 1400px; */
+    margin-inline: auto;
+    /* margin: 20px; */
+    padding: 20px;
+    width: 100%;
+}
+
+.print-ads-banner figure {
+    width: 100%;
+}
+
+.print-ads-banner img {
+    object-fit: scale-down;
+    width: inherit;
+}
+
 .print_container {
     padding: 100px 20px;
     /* background-color: rebeccapurple; */
@@ -395,8 +412,12 @@ input[type=number]::-webkit-outer-spin-button {
     }
 
     .print_container {
-        padding: 20px;
+        padding: 10px;
         flex-direction: column;
+    }
+
+    .print-ads-banner {
+        padding: 10px;
     }
 
     .print_info .span_2 {
@@ -427,6 +448,6 @@ input[type=number]::-webkit-outer-spin-button {
     .print_search {
         width: 90%;
     }
-    
+
 
 }

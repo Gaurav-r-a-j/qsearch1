@@ -153,7 +153,7 @@ export const EditPostForm = ({ post, closeEdit, setPost }) => {
     url: post.url,
     desc: post.desc,
     author: {
-      name: '',
+      name: post?.author?.name,
       image: ''
     }
   });

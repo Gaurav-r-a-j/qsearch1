@@ -40,6 +40,7 @@ router.put('/posts/:id', verifyToken, (req, res, next) => {
             next()
         }
     });
+    
 
 }, postController.update);
 
