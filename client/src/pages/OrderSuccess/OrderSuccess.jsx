@@ -108,6 +108,7 @@ const OrderSuccess = (props) => {
                                 />
                             </svg>
 
+                            <h2 style={{color:"aliceblue"}}>Order Id: {orderId}</h2>
                             <h1>Thank you for your order!</h1>
                             <p>Your order has been placed!, and will be processed shortly.</p>
                             <div className="d-flex-center gap1">
@@ -126,6 +127,7 @@ const OrderSuccess = (props) => {
                         </div>
                     ) : (
                         <div className="error-message">
+                            <h2 style={{color:"aliceblue"}}>Order Id: {orderId}</h2>
                             <h1>Error updating payment status</h1>
                             <p>Payment not completed Sucessfully! , Please try again or Contact us.</p>
 

@@ -7,7 +7,7 @@ import {Link} from 'react-router-dom'
 // import cat4 from '../../assets/cat4.png'
 // import cat9 from '../../assets/cat9.png'
 // import cat10 from '../../assets/cat10.png'
-
+//Copyrigh by Gaurav raj
 
 const Categories = () => {
     return (

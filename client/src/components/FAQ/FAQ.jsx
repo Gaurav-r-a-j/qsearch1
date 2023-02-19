@@ -49,6 +49,7 @@ const FAQ = () => {
                     answer={"Yes, we have a blog on our website that covers a variety of topics related to college and education. Our blog features articles, tips, and resources for students to help them succeed in college and beyond."}
                 />
 
+                {/* //Copyrigh by Gaurav raj */}
 
             </div>
         </>

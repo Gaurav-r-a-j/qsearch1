@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-// const BASE_URL = "http://localhost:5500/api"
-const BASE_URL = "https://qsearch.onrender.com/api"
+const BASE_URL = "http://localhost:5500/api"
+// const BASE_URL = "https://qsearch.onrender.com/api"
 
 
 
@@ -16,7 +16,7 @@ const api = axios.create({
 
 api.interceptors.request.use(
     (config) => {
-        const token = localStorage.getItem('token');
+        const token = JSON.parse(localStorage.getItem('token'));
         if (token) {
             config.headers.Authorization = `Bearer ${token}`;
         }
