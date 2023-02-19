@@ -143,8 +143,8 @@ const PrintOrderForm = () => {
                     'Content-Type': 'multipart/form-data'
                 }
             };
-            // const response = await axios.post('https://qsearch.onrender.com/api/order/orders', data, config);
-            const response = await axios.post('http://localhost:5500/api/order/orders', data, config);
+            const response = await axios.post('https://qsearch.onrender.com/api/order/orders', data, config);
+            // const response = await axios.post('http://localhost:5500/api/order/orders', data, config);
             stripeSubmit(response.data.totalCost, response.data._id, response.data.orderNumber)
             setIsOrder(true)
             return response.data;
