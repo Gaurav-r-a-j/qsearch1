@@ -9,7 +9,7 @@ import DeleteModal from '../../components/Modal/DeleteModal';
 
 const Orders = () => {
 
-    const user = useSelector((state) => state.user)
+    const { user } = useSelector((state) => state.user)
     const { showNotification } = React.useContext(NotificationContext);
     const [orders, setOrders] = useState([]);
     const [filteredOrders, setFilteredOrders] = useState([]);
@@ -19,8 +19,15 @@ const Orders = () => {
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
+        let api_url = "";
+        if (user.role === 'admin') {
+            api_url = '/order/orders/all'
+        } else if (user.role === 'user') {
+            api_url = '/order/orders/user'
+        }
+        api.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem('token')}`;
         const fetchOrders = async () => {
-            const response = await api.get('/order/orders/all');
+            const response = await api.get(api_url);
             setOrders(response.data);
             setFilteredOrders(response.data);
             setIsLoading(false);
@@ -71,8 +78,8 @@ const Orders = () => {
             orders.filter(order => {
                 return (
                     order.orderNumber.toString().includes(searchTerm) ||
-                    order?.user?.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                    order?.user?.email.toLowerCase().includes(searchTerm.toLowerCase())
+                    order?.user?.name?.toLowerCase()?.includes(searchTerm.toLowerCase()) ||
+                    order?.user?.email?.toLowerCase()?.includes(searchTerm.toLowerCase())
                 );
             })
         );
@@ -119,11 +126,13 @@ const Orders = () => {
     }
 
 
-    if (user?.role !== "admin") {
+    if (user === null) {
         return (
             <ErrorPage />
         )
     }
+
+
     return (
 
         <>
@@ -143,7 +152,7 @@ const Orders = () => {
                 ) : (
                     <>
                         <div className="filter-section">
-                            <div className="filter-by d-flex-center fd-col">
+                            {user.role === 'admin' && <div className="filter-by d-flex-center fd-col">
                                 <label htmlFor="orderStatus">Order Status</label>
                                 <select id='orderStatus' value={statusFilter} onChange={e => setStatusFilter(e.target.value)}>
                                     <option value="all">All</option>
@@ -153,7 +162,7 @@ const Orders = () => {
                                     <option value="cancelled">Cancelled</option>
                                 </select>
                             </div>
-
+                            }
                             <div className="filter-by d-flex-center fd-col">
                                 <label htmlFor="isPaid">isPaid</label>
                                 <select id='isPaid' value={isPaidFilter} onChange={e => setIsPaidFilter(e.target.value)}>
@@ -163,12 +172,23 @@ const Orders = () => {
                                 </select>
                             </div>
 
-                            <input
-                                type="text"
-                                value={searchTerm}
-                                onChange={e => setSearchTerm(e.target.value)}
-                                placeholder="Search by order number or customer name"
-                            />
+                            {user.role === 'admin' ?
+                                <input
+                                    type="text"
+                                    value={searchTerm}
+                                    onChange={e => setSearchTerm(e.target.value)}
+                                    placeholder="Search by order number or customer name"
+                                />
+                                :
+                                <input
+                                    type="text"
+                                    value={searchTerm}
+                                    onChange={e => setSearchTerm(e.target.value)}
+                                    placeholder="Search by your order number"
+                                />
+
+
+                            }
                         </div>
 
 
@@ -178,9 +198,9 @@ const Orders = () => {
                             <table>
                                 <thead>
                                     <tr>
-                                        <th></th>
+                                        {user.role === 'admin' && <th></th>}
                                         <th>Order Number</th>
-                                        <th>Customer</th>
+                                        {user.role === 'admin' && <th>Customer</th>}
                                         <th>isPaid</th>
                                         <th>Pdf</th>
                                         <th>print Type</th>
@@ -189,23 +209,23 @@ const Orders = () => {
                                         <th>Copies</th>
                                         <th>Binding</th>
                                         <th>Total Cost</th>
-                                        <th>Status</th>
-                                        <th>Action</th>
+                                        {user.role === 'admin' && <th>Status</th>}
+                                        {user.role === 'admin' && <th>Action</th>}
                                     </tr>
                                 </thead>
 
                                 <tbody>
                                     {filteredOrders.map(order => (
                                         <tr key={order._id}>
-                                            <td>
+                                            {user.role === 'admin' && <td>
                                                 <input type="checkbox" name="" id="" />
-                                            </td>
+                                            </td>}
                                             <td>
                                                 <Link to={`/orders/${order._id}`}>
                                                     {order.orderNumber}
                                                 </Link>
                                             </td>
-                                            <td>{order.user.name}</td>
+                                            {user.role === 'admin' && <td>{order.user.name}</td>}
                                             <td>{order.isPaid ? "✅" : "🚫"}</td>
                                             <td>
                                                 <a href={order.fileUrl} target="_blank" rel="noopener noreferrer">
@@ -218,8 +238,8 @@ const Orders = () => {
                                             <td>{order.copies}</td>
                                             <td>{order.binding}</td>
                                             <td>{order.totalCost}</td>
-                                            <td>{order.status}</td>
-                                            <td className='action'>
+                                            {user.role === 'admin' && <td>{order.status}</td>}
+                                            {user.role === 'admin' && <td className='action'>
 
                                                 <span onClick={(e) => deleteOrder(e, order._id)} class="material-icons">
                                                     delete
@@ -227,7 +247,7 @@ const Orders = () => {
                                                 <span class="material-icons">
                                                     edit
                                                 </span>
-                                            </td>
+                                            </td>}
                                         </tr>
                                     ))}
                                 </tbody>

@@ -110,19 +110,37 @@ const OrderSuccess = (props) => {
 
                             <h1>Thank you for your order!</h1>
                             <p>Your order has been placed!, and will be processed shortly.</p>
-                            <button className='order-nav-btn'>
-                                <Link to={'/'}>
-                                    Go Home
-                                </Link>
-                            </button>
+                            <div className="d-flex-center gap1">
+
+                                <button className='order-nav-btn'>
+                                    <Link to={'/'}>
+                                        Go Home
+                                    </Link>
+                                </button>
+                                <button className='order-nav-btn'>
+                                    <Link to={'/my-orders'}>
+                                        My Orders
+                                    </Link>
+                                </button>
+                            </div>
                         </div>
                     ) : (
                         <div className="error-message">
                             <h1>Error updating payment status</h1>
                             <p>Payment not completed Sucessfully! , Please try again or Contact us.</p>
 
+                            <br />
+
+                            <h3 style={{ color: "white" }}>If You have paid the amount using UPI then You can check your Account section for your order status ! or you can Contact us. </h3>
                             <div className='d-flex-center gap1 fd-col'>
-                                <button onClick={goBack} className='order-nav-btn'>   Try again </button>
+                                <div className="d-flex-center gap1">
+                                    <button onClick={goBack} className='order-nav-btn'>   Try again </button>
+                                    <button className='order-nav-btn'>
+                                        <Link to={'/my-orders'}>
+                                            My Orders
+                                        </Link>
+                                    </button>
+                                </div>
                                 {/* <div className="whatsapp_button d-flex-center">
                                     <img src="https://ik.imagekit.io/faskf16pg/Branding/Main/whatapp-sharepal_6GcbqnN5e.png?ik-sdk-version=javascript-1.4.3&updatedAt=1657830361133" alt="" />
 

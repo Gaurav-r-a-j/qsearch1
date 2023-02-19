@@ -24,8 +24,6 @@ const verifyToken = (req, res, next) => {
     // Set the decoded data on the request object
     req.user = decoded;
     req.user.role = decoded.role;
-    // console.log(req.user.role)
-    // console.log(req.user)
 
     // Call the next middleware function
     next();

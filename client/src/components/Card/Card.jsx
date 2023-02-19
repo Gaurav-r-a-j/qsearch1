@@ -17,7 +17,7 @@ const Card = ({ postImg, title, desc, cat, author, slug, postId, postedAt }) => 
         e.preventDefault();
         setModalOpen(true)
     }
-    const user = useSelector((state) => state.user)
+    const { user } = useSelector((state) => state.user)
 
 
 

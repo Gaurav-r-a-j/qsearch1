@@ -7,7 +7,7 @@ import ErrorPage from '../Error/ErrorPage';
 
 const OrderDetails = () => {
 
-  const user = useSelector((state) => state.user)
+  const {user} = useSelector((state) => state.user)
   const [order, setOrder] = useState({});
   const [loading, setLoading] = useState(true);
   const { orderId } = useParams();

@@ -45,9 +45,9 @@ const orderPrintController = {
   // this is to get the all orders realted to a user
   getUserOrders: async (req, res) => {
     try {
-      if (req.user.role !== 'admin') {
-        return res.status(401).json({ error: 'Unauthorized' });
-      }
+      // if (req.user.role !== 'admin' || req.user.role!=="user" ) {
+      //   return res.status(401).json({ error: 'Unauthorized' });
+      // }
       const orders = await Order.find({ user: req.user.id });
       return res.status(200).json(orders);
     } catch (error) {

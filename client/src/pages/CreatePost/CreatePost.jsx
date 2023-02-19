@@ -8,7 +8,7 @@ import ErrorPage from '../Error/ErrorPage';
 
 const CreatePost = () => {
 
-    const user = useSelector((state) => state.user)
+    const {user} = useSelector((state) => state.user)
 
 
     const { showNotification } = useContext(NotificationContext)

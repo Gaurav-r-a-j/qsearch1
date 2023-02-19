@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux'
 
 const UserProfile = ({ isOpen, setIsProfileOpen }) => {
 
-    const user = useSelector((state) => state.user)
+    const { user } = useSelector((state) => state.user)
     console.log(user)
 
     if (isOpen) {
@@ -27,8 +27,8 @@ const UserProfile = ({ isOpen, setIsProfileOpen }) => {
                 <p>Username</p>
             </div>
             <div class="profile-dropdown ">
-                {/* <p><Link to="/">Edit Profile</Link></p> */}
-                <p><Link to="/orders">My Orders</Link></p>
+                {user.role === 'admin' && <p><Link to="/orders">Orders</Link></p>}
+                {user.role === 'user' && <p><Link to="/my-orders">My Orders</Link></p>}
                 {
                     user.role === "admin" &&
                     (

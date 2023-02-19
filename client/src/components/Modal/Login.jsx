@@ -54,6 +54,7 @@ const Login = ({ isOpen, setIsModalOpen }) => {
             // console.log(data)
             dispatch(setUser(data.user))
             showNotification('success', 'Login Success!', 2000, 'top', 'Login Success!');
+            api.defaults.headers.common['Authorization'] = `Bearer ${data.token}`;
             closeModal()
             setForm({ name: "", password: "" });
         } catch (error) {
@@ -132,7 +133,7 @@ const Login = ({ isOpen, setIsModalOpen }) => {
                                 <div className="form-actions">
                                     <button type="submit" className='primary-button'>Submit</button>
                                     {/* <button disabled={true} type="button" className="secondary-button">Login With Google</button> */}
-                                    <GoogleAuth/>
+                                    <GoogleAuth />
                                 </div>
                             </form>
                         </div>

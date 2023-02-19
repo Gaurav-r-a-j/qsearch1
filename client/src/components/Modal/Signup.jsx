@@ -54,7 +54,7 @@ const Signup = ({ isOpen, setIsModalOpen }) => {
             const { data } = await api.post('/auth/signup', form)
             localStorage.setItem('token', JSON.stringify(data.token))
             // console.log(data)
-            dispatch(setUser(data.user))
+            dispatch(setUser( data.user ))
             showNotification('success', 'Signup success!', 2000, 'top', 'Signup success!')
             closeModal();
             setForm({

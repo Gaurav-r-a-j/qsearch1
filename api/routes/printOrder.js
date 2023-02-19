@@ -16,7 +16,7 @@ router.put('/orders/:orderId', verifyToken, orderPrintController.updateOrder);
 router.patch('/orders/ispaid/:orderId', verifyToken, retrievePaymentIntent, orderPrintController.updateIsPaid);
 
 
-router.get('/orders', verifyToken, orderPrintController.getUserOrders);
+router.get('/orders/user', verifyToken, orderPrintController.getUserOrders);
 router.get('/orders/all', verifyToken, orderPrintController.getAllOrders);
 
 router.get('/orders/:orderId', verifyToken, orderPrintController.getOrderById);

@@ -38,8 +38,6 @@ export function setCookie(cname, cvalue, exmins) {
     var sameSite = window.location.protocol === 'https:' ? '; SameSite=None' : '';
     document.cookie = cname + "=" + cvalue + sameSite + secure + ";" + expires + ";path=/";
 }
-
-
 // setCookie("sessionId", "someSessionIdValue", 2);
 
 // export const getCookie = (name) => {

@@ -2,7 +2,7 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import './printOrder.css'
 export const WhatsappButton = ({query}) => {
-    const user = useSelector((state) => state.user)
+    const {user} = useSelector((state) => state.user)
 
     return (
         <div className="whatsapp_button d-flex-center">

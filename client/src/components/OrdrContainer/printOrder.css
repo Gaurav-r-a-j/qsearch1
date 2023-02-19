@@ -21,7 +21,7 @@
 
 .upload_button {
     display: inline-block;
-    padding: 10px 20px;
+    /* padding: 10px 20px; */
     border: none;
     background-color: #dc3545;
     transition: all 0.3s ease;
@@ -31,12 +31,17 @@
     border-radius: 4px;
     overflow: hidden;
     max-width: 250px;
+    height: 45px;
+    min-width: 100px;
 }
 
 .upload_button .upload_file {
     gap: 10px;
     cursor: pointer;
     display: flex;
+    height: 100%;
+    width: 100%;
+padding: 10px 20px;
 
 }
 

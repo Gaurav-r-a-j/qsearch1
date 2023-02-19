@@ -65,8 +65,7 @@ app.use('/api/user', userRoutes);
 const stripe = stripeModule(process.env.STRIPE_SECRET_KEY);
 //? this is to get stripe session or for stripe payment
 app.post('/api/create-checkout-session', async (req, res) => {
-    const { amount, paymentMethodType, orderId } = req.body;
-
+    const { amount, paymentMethodType, orderId, orderNumber } = req.body;
     try {
         // Create a new checkout session
         const session = await stripe.checkout.sessions.create({
@@ -77,18 +76,26 @@ app.post('/api/create-checkout-session', async (req, res) => {
                     price_data: {
                         currency: 'INR',
                         product_data: {
-                            name: 'Print order',
+                            name: `Your Order Id: ${orderId}  Your Order No. :${orderNumber}`,
+                            images: ['https://upload-print-blog.s3.ap-south-1.amazonaws.com/scanner3.gif'], // add the URL of your product image here
+                            // images: ['https://upload-print-blog.s3.ap-south-1.amazonaws.com/scanner.png'], // add the URL of your product image here
+
                         },
+
                         unit_amount: amount * 100,
                     },
                     quantity: 1,
                 },
             ],
             mode: 'payment',
+            custom_text: {
+                submit: { message: `No cards? Contact us on WhatsApp for alternative payment options. We're here to help.` },
+            },
             success_url: process.env.CLIENT_URL + 'order/' + orderId + "?success=true",
             cancel_url: process.env.CLIENT_URL + 'order/' + orderId + "?success=false",
+
         });
-        console.log(session.id)
+        // console.log(session.id)
         res.send({ sessionId: session.id });
     } catch (error) {
         console.error(error);

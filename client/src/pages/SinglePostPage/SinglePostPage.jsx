@@ -16,7 +16,7 @@ function SinglePostPage() {
   const [error, setError] = useState(null);
   const [isEditing, setIsEditing] = useState(false);  // Add this state to track if the form is in edit mode
 
-  const user = useSelector((state) => state.user)
+  const { user } = useSelector((state) => state.user)
   const { id } = useParams();
   console.log(isLoading)
 

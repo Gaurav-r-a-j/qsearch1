@@ -18,7 +18,7 @@ const Navbar = () => {
   const [isLoginOpen, setIsLoginOpen] = useState(false);
   const [loading, setLoading] = useState(true)
   const dispatch = useDispatch()
-  const user = useSelector((state) => state.user)
+  const { user } = useSelector((state) => state.user)
   const location = useLocation()
 
 
@@ -147,7 +147,7 @@ const Navbar = () => {
                       title='Logout'
                       onClick={() => {
                         localStorage.removeItem('token')
-                        dispatch(clearUser())
+                        dispatch(clearUser({ user: null }))
                         showNotification('warning', 'Login Failed!', 2000, 'top', 'Logged out!');
                       }}
                       className=" user_found menu_block user_logout ">

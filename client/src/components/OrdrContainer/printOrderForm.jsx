@@ -5,6 +5,8 @@ import './printOrder.css'
 import { loadStripe } from '@stripe/stripe-js';
 import { setCookie } from '../../generic_functions/smallFunctions';
 import { WhatsappButton } from './WhatsappButton';
+import { useSelector } from 'react-redux';
+import { NotificationContext } from '../CustomNotification/CustomNotification';
 
 
 // // Store the session ID in the cache
@@ -75,6 +77,8 @@ const PrintOrderForm = () => {
     const [isLoading, setIsLoading] = useState(false);
     const [paymentLoading, setPaymentLoading] = useState(false);
 
+    const { showNotification } = React.useContext(NotificationContext);
+    const { user } = useSelector((state) => state.user)
 
 
     // const user = useSelector((state) => state.user)
@@ -139,9 +143,9 @@ const PrintOrderForm = () => {
                     'Content-Type': 'multipart/form-data'
                 }
             };
-            const response = await axios.post('https://qsearch.onrender.com/api/order/orders', data, config);
-            // const response = await axios.post('http://localhost:5500/api/order/orders', data, config);
-            stripeSubmit(response.data.totalCost, response.data._id)
+            // const response = await axios.post('https://qsearch.onrender.com/api/order/orders', data, config);
+            const response = await axios.post('http://localhost:5500/api/order/orders', data, config);
+            stripeSubmit(response.data.totalCost, response.data._id, response.data.orderNumber)
             setIsOrder(true)
             return response.data;
 
@@ -161,21 +165,22 @@ const PrintOrderForm = () => {
 
 
 
-    const stripeSubmit = async (totalCost, orderId) => {
+    const stripeSubmit = async (totalCost, orderId, orderNumber) => {
         setPaymentLoading(true)
         try {
             // Create payment object with necessary information
             const paymentData = {
                 amount: totalCost,
                 paymentMethodType: 'card',
-                orderId
+                orderId,
+                orderNumber
             };
+
 
             // Send request to create payment on backend server
             // const { data } = await axios.post('http://localhost:5500/create-checkout-session', paymentData);
             const { data } = await api.post('/create-checkout-session', paymentData);
 
-            console.log(data)
             localStorage.setItem('sessionId', data.sessionId)
             setCookie('sessionId', data.sessionId, 10)
             // alert(data.sessionId)
@@ -212,10 +217,10 @@ const PrintOrderForm = () => {
     };
 
 
-
     // handle submit
     const handleSubmit = async (event) => {
         event.preventDefault();
+
         // Create the data object for the API call
         const formData = new FormData();
         formData.append('fileUrl', selectedFile);
@@ -228,9 +233,16 @@ const PrintOrderForm = () => {
         formData.append('orderNumber', generateOrderNumber())
         // Make the API call
         console.log("formdata set", formData)
-        formData.forEach((value, key) => {
-            console.log(key, value);
-        });
+        // formData.forEach((value, key) => {
+        //     console.log(key, value);
+        // });
+
+        console.log(user)
+        if (user === null) {
+            console.log("not use")
+            showNotification('error', 'Login to Order!', 2000, 'top', 'Login to Order!');
+            return;
+        }
 
         try {
             if (totalCost !== 0) {
@@ -258,7 +270,7 @@ const PrintOrderForm = () => {
     return (
         <div className='print_order_form  glassomorphism'>
             <div className="print_order_input d-flex-spaceb">
-                <div className='upload_button'>
+                <div className='upload_button d-flex-center'>
                     <label
                         // style={{ width: '100%', textOverflow: 'ellipsis' }}
                         title={selectedFile ? selectedFile.name : ''}
@@ -336,12 +348,12 @@ const PrintOrderForm = () => {
             </div>
 
 
-            <button
+            {<button
                 onClick={handleSubmit}
                 disabled={selectedFile === null || pages === 0 || totalCost === 0}
                 className="order-button">
                 {(isLoading || paymentLoading) ? 'Wait...' : "Order"}
-            </button>
+            </button>}
 
             {/* <span>Su</span> */}
 
