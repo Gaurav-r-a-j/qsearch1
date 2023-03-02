@@ -45,7 +45,6 @@ const Login = ({ isOpen, setIsModalOpen }) => {
         // ocalhost:5500/api/auth/signup
         // const data = JSON.stringify(form);
         // setError(false)
-        console.log(form)
         try {
             // const { data } = await api.post('https://qsearch.onrender.com/api/auth/login', form)
             const { data } = await api.post('/auth/login', form)
