@@ -12,7 +12,7 @@ function Developers() {
             "https://upload-print-blog.s3.ap-south-1.amazonaws.com/ayush.webp"
           }
           name={"Ayush Kumar"}
-          title={"content manager"}
+          title={"Content manager"}
         />
         <SingleDeveloper
           image={
@@ -25,8 +25,15 @@ function Developers() {
           image={
             "https://upload-print-blog.s3.ap-south-1.amazonaws.com/43.webp"
           }
-          name={"Rachit Vikal"}
+          name={"Suraj raj"}
           title="Senior Content Manager"
+        />
+        <SingleDeveloper
+          image={
+            "https://upload-print-blog.s3.ap-south-1.amazonaws.com/rachitviakal.png"
+          }
+          name={"Rachit Vikal"}
+          title="Finance Manager"
         />
       </div>
     </section>
@@ -40,7 +47,7 @@ export const SingleDeveloper = ({ image, name, desc, title }) => {
       <h2>{name}</h2>
       <span>{title}</span>
       <p>{desc}</p>
-      <Link to="/developer1">View Profile</Link>
+      <Link to="/support">View Profile</Link>
     </div>
   );
 };

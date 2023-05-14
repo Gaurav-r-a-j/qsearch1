@@ -19,6 +19,11 @@ import OrderSuccess from './pages/OrderSuccess/OrderSuccess';
 import ErrorPage from './pages/Error/ErrorPage';
 import OrderDetails from './pages/Orders/OrderDetails';
 import Orders from './pages/Orders/Orders';
+import PrivacyPolicy from './pages/FooterPages/PrivacyPolicy';
+import CancellationPolicy from './pages/FooterPages/CancellationPolicy';
+import ShippingPolicy from './pages/FooterPages/ShippingPolicy';
+import RefundProcess from './pages/FooterPages/RefundProcess';
+import TermsofUse from './pages/FooterPages/TermsOfUse';
 
 const Layout = () => {
   const topRef = useRef(null)
@@ -82,13 +87,28 @@ const router = createBrowserRouter([
       {
         path: '/orders/:orderId',
         element: <OrderDetails/>
-      }
+      },
+      {
+        path: '/privacy-policy',
+        element: <PrivacyPolicy/>
+      },
+      {
+        path: '/shipping-returns',
+        element: <ShippingPolicy/>
+      },
+      {
+        path: '/cancellation-policy',
+        element: <CancellationPolicy/>
+      },
+      {
+        path: '/terms-of-use',
+        element: <TermsofUse/>
+      },
+      {
+        path: '/refund-process',
+        element: <RefundProcess/>
+      },
 
-
-      // {
-      //   path: '/event/:event_name',
-      //   element: <Event />
-      // },
 
     ]
   },

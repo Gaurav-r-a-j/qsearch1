@@ -93,7 +93,7 @@ function SinglePostPage() {
                     </div>
                     <p className="single_post_category">Category: {post?.category}</p>
                   </>
-                  {user.role === 'admin' && !isEditing && (
+                  {user?.role === 'admin' && !isEditing && (
                     // <button onClick={() => setIsEditing(true)}>Edit</button>
 
                     <span

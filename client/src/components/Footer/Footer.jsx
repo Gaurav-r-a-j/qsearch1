@@ -1,12 +1,10 @@
-import React, { } from 'react'
-import { Link } from 'react-router-dom'
-import './Footer.css'
+import React from "react";
+import { Link } from "react-router-dom";
+import "./Footer.css";
 const Footer = ({ topRef }) => {
-
   const handleClick = () => {
     // e.preventDefault();
-    topRef.current.scrollIntoView({ behavior: 'smooth' });
-
+    topRef.current.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
@@ -26,7 +24,7 @@ const Footer = ({ topRef }) => {
         <div className="footer-content">
           <div className="footer-content-column">
             <div className="footer-logo">
-              <Link to={'/'} onClick={handleClick} className="footer-logo-link">
+              <Link to={"/"} onClick={handleClick} className="footer-logo-link">
                 <span className="hidden-link-text">LOGO</span>
                 <h1>QSEARCH</h1>
               </Link>
@@ -51,39 +49,32 @@ const Footer = ({ topRef }) => {
               <h2 className="footer-menu-name"> Company</h2>
               <ul id="menu-company" className="footer-menu-list">
                 <li className="menu-item menu-item-type-post_type menu-item-object-page">
-                  <Link onClick={handleClick} to="/support">Contact</Link>
+                  <Link onClick={handleClick} to="/support">
+                    Contact
+                  </Link>
                 </li>
                 <li className="menu-item menu-item-type-taxonomy menu-item-object-category">
-                  <Link onClick={handleClick} to="/">posts</Link>
+                  <Link onClick={handleClick} to="/">
+                    posts
+                  </Link>
                 </li>
                 <li className="menu-item menu-item-type-post_type menu-item-object-page">
-                  <Link onClick={handleClick} to="/support">Careers</Link>
+                  <Link onClick={handleClick} to="/support">
+                    Careers
+                  </Link>
                 </li>
               </ul>
             </div>
-            <div className="footer-menu">
-              <h2 className="footer-menu-name"> Legal</h2>
-              <ul id="menu-legal" className="footer-menu-list">
-                <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy menu-item-170434">
-                  <Link onClick={handleClick} to="/support">Privacy Policy</Link>
-                </li>
-                <li className="menu-item menu-item-type-post_type menu-item-object-page">
-                  <Link onClick={handleClick} to="/support">Terms of Use</Link>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div className="footer-content-column">
+
             <div className="footer-menu">
               <h2 className="footer-menu-name"> Quick Links</h2>
               <ul id="menu-quick-links" className="footer-menu-list">
                 <li className="menu-item menu-item-type-custom menu-item-object-custom">
-                  <Link onClick={handleClick} rel="noopener noreferrer" to="/support">
-                    Support Center
-                  </Link>
-                </li>
-                <li className="menu-item menu-item-type-custom menu-item-object-custom">
-                  <Link onClick={handleClick} rel="noopener noreferrer" to="/support">
+                  <Link
+                    onClick={handleClick}
+                    rel="noopener noreferrer"
+                    to="/support"
+                  >
                     Whatsapp Support
                   </Link>
                 </li>
@@ -91,10 +82,14 @@ const Footer = ({ topRef }) => {
                   {/* <Link to="/">Security</Link> */}
                 </li>
                 <li className="menu-item menu-item-type-post_type menu-item-object-page">
-                  <Link onClick={handleClick} to="/">Blog</Link>
+                  <Link onClick={handleClick} to="/">
+                    Blog
+                  </Link>
                 </li>
                 <li className="menu-item menu-item-type-post_type_archive menu-item-object-customer">
-                  <Link onClick={handleClick} to="/support">Customers</Link>
+                  <Link onClick={handleClick} to="/support">
+                    Customers
+                  </Link>
                 </li>
                 <li className="menu-item menu-item-type-post_type menu-item-object-page">
                   {/* <Link to="/">Reviews</Link> */}
@@ -102,9 +97,83 @@ const Footer = ({ topRef }) => {
               </ul>
             </div>
           </div>
+
+          <div className="footer-content-column">
+            <div className="footer-menu">
+              <h2 className="footer-menu-name"> Legal</h2>
+              <ul id="menu-legal" className="footer-menu-list">
+                <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy menu-item-170434">
+                  <Link onClick={handleClick} to="/privacy-policy">
+                    Privacy Policy
+                  </Link>
+                </li>
+                <li className="menu-item menu-item-type-post_type menu-item-object-page">
+                  <Link onClick={handleClick} to="/shipping-returns">
+                    Shipping & Returns
+                  </Link>
+                </li>
+                <li className="menu-item menu-item-type-post_type menu-item-object-page">
+                  <Link onClick={handleClick} to="/cancellation-policy">
+                    Cancellation Policy
+                  </Link>
+                </li>
+                <li className="menu-item menu-item-type-post_type menu-item-object-page">
+                  <Link onClick={handleClick} to="/terms-of-use">
+                    Terms of Use
+                  </Link>
+                </li>
+                <li className="menu-item menu-item-type-post_type menu-item-object-page">
+                  <Link onClick={handleClick} to="/refund-process">
+                    Refund process
+                  </Link>
+                </li>
+
+                <li className="menu-item menu-item-type-custom menu-item-object-custom">
+                  <Link
+                    onClick={handleClick}
+                    rel="noopener noreferrer"
+                    to="/support"
+                  >
+                    Support Center
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </div>
+
           <div className="footer-content-column">
             <div className="footer-call-to-action">
-              <h2 className="footer-call-to-action-title"> Let's Chat</h2>
+            <h2 className="footer-call-to-action-title"> Let's Chat</h2>
+              {/* <h2 className="footer-call-to-action-title">Call Us</h2> */}
+              <p className="footer-call-to-action-link-wrapper">
+                {" "}
+                <a
+                  className="footer-call-to-action-link"
+                  href="tel:+91 8582042402"
+                  target="_self"
+                >
+                  {" "}
+                  +91-8582042402{" "}
+                </a>
+              </p>
+            </div>
+            <div className="footer-call-to-action">
+              {/* <h2 className="footer-call-to-action-title"> Email Us</h2> */}
+              <span
+                itemProp="email"
+                className="footer-call-to-action-link-wrapper"
+              >
+                <a
+                  href="mailto: care@sharepal.in "
+                  className="d-flex-center gaps"
+                >
+                  gauravraj858204@gmail.com
+                </a>
+              </span>
+            </div>
+
+            <div className="footer-call-to-action">
+              {/* <h2 className="footer-call-to-action-title"> Let's Chat</h2> */}
               <p className="footer-call-to-action-description">
                 {" "}
                 Have a support question?
@@ -117,20 +186,6 @@ const Footer = ({ topRef }) => {
                 {" "}
                 Get in Touch{" "}
               </a>
-            </div>
-            <div className="footer-call-to-action">
-              <h2 className="footer-call-to-action-title"> You Call Us</h2>
-              <p className="footer-call-to-action-link-wrapper">
-                {" "}
-                <Link
-                  className="footer-call-to-action-link"
-                  to="tel:0124-64XXXX"
-                  target="_self"
-                >
-                  {" "}
-                  +91-8582042402{" "}
-                </Link>
-              </p>
             </div>
           </div>
           <div className="footer-social-links">
@@ -145,7 +200,11 @@ const Footer = ({ topRef }) => {
                 d="M223.06,43.32c-.77-7.2,1.87-28.47-20-32.53C187.78,8,180.41,18,178.32,20.7s-5.63,10.1-4.07,16.7-.13,15.23-4.06,15.91-8.75-2.9-6.89-7S167.41,36,167.15,33a18.93,18.93,0,0,0-2.64-8.53c-3.44-5.5-8-11.19-19.12-11.19a21.64,21.64,0,0,0-18.31,9.18c-2.08,2.7-5.66,9.6-4.07,16.69s.64,14.32-6.11,13.9S108.35,46.5,112,36.54s-1.89-21.24-4-23.94S96.34,0,85.23,0,57.46,8.84,56.49,24.56s6.92,20.79,7,24.59c.07,2.75-6.43,4.16-12.92,2.38s-4-10.75-3.46-12.38c1.85-6.6-2-14-4.08-16.69a21.62,21.62,0,0,0-18.3-9.18C13.62,13.28,9.06,19,5.62,24.47A18.81,18.81,0,0,0,3,33a21.85,21.85,0,0,0,1.58,9.08,16.58,16.58,0,0,1,1.06,5A6.75,6.75,0,0,1,0,54H236C235.47,54,223.83,50.52,223.06,43.32Z"
               />
             </svg>
-            <Link className="footer-social-link linkedin" to="/" target="_blank">
+            <Link
+              className="footer-social-link linkedin"
+              to="/"
+              target="_blank"
+            >
               <span className="hidden-link-text">Linkedin</span>
               <svg
                 className="footer-social-icon-svg"
@@ -202,17 +261,22 @@ const Footer = ({ topRef }) => {
         <div className="footer-copyright">
           <div className="footer-copyright-wrapper">
             <p className="footer-copyright-text">
+              {/* <Link className="footer-copyright-link" to="/" target="_self">
+                {" "}
+                ©{new Date().getFullYear()}. | Designed By: Gaurav Raj. | All
+                rights reserved.{" "}
+              </Link> */}
               <Link className="footer-copyright-link" to="/" target="_self">
                 {" "}
-                ©{new Date().getFullYear()}. | Designed By: Gaurav Raj. | All rights reserved.{" "}
+                ©{new Date().getFullYear()}. | Copyright Qsearch.in | All rights
+                reserved.{" "}
               </Link>
             </p>
           </div>
         </div>
       </footer>
     </div>
+  );
+};
 
-  )
-}
-
-export default Footer
+export default Footer;
