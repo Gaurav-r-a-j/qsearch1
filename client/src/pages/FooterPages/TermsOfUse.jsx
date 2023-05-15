@@ -10,7 +10,7 @@ const TermsofUse = () => {
     <>
       <div className={`${styles.policyTextContaier}  w100 d-flex-center mtop`}>
         <div
-          className={`${styles.policyTexts}  d-flex-center pdl fd-col gapl `}
+          className={`${styles.policyTexts}  ${styles.marginforP} d-flex-center pdl fd-col gapl `}
         >
           <p>
             Welcome to QSearch! We are glad you have chosen to use our online

@@ -10,7 +10,7 @@ const RefundProcess = () => {
     <>
       <div className={`${styles.policyTextContaier}  w100 d-flex-center mtop`}>
         <div
-          className={`${styles.policyTexts}  d-flex-center pdl fd-col gapl `}
+          className={`${styles.policyTexts} ${styles.marginforP}  d-flex-center pdl fd-col gapl `}
         >
           <p>
             At QSearch, we strive to provide high-quality printing services and
@@ -30,10 +30,10 @@ const RefundProcess = () => {
           </p>
           <b> Printing Errors:</b>
           <p>
-            will provide a full refund to your original payment method or
-            reprint your order at no additional cost to you.
+            We will provide a full refund to your original payment method or
+            reprint your order at no additional cost to you. If there is an
+            error in the printing process that is our fault.
           </p>{" "}
-          If there is an error in the printing process that is our fault, we
           <b>Damaged or Lost Orders:</b>
           <p>
             If your order is lost or damaged during shipping, we will either
@@ -58,9 +58,11 @@ const RefundProcess = () => {
             work with you to resolve any issues and, if necessary, initiate the
             refund process.
           </p>
-          We hope that our refund policy provides you with the confidence to
-          order from QSearch with ease. If you have any questions or concerns,
-          please do not hesitate to contact our customer service team.
+          <p>
+            We hope that our refund policy provides you with the confidence to
+            order from QSearch with ease. If you have any questions or concerns,
+            please do not hesitate to contact our customer service team.
+          </p>
         </div>
       </div>
     </>

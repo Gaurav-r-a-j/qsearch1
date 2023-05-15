@@ -10,7 +10,7 @@ const PrivacyPolicy = () => {
     <>
       <div className={`${styles.policyTextContaier}  w100 d-flex-center mtop`}>
         <div
-          className={`${styles.policyTexts}  d-flex-center pdl fd-col gapl `}
+          className={`${styles.policyTexts} ${styles.marginforP}  d-flex-center pdl fd-col gapl `}
         >
           <b>
             At QSearch, we value your privacy and are committed to protecting
