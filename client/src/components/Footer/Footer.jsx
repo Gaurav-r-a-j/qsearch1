@@ -28,6 +28,15 @@ const Footer = ({ topRef }) => {
                 <span className="hidden-link-text">LOGO</span>
                 <h1>QSEARCH</h1>
               </Link>
+              <div className="footer-call-to-action">
+                {/* <h2 className="footer-call-to-action-title"> Email Us</h2> */}
+                <span
+                  itemProp="address"
+                  className="footer-call-to-action-link-wrapper"
+                >
+                  Near SRM University-Modinagar, Delhi NCR, Meerut Road, Pincode - 201204
+                </span>
+              </div>
             </div>
             <div className="footer-menu">
               {/* <h2 className="footer-menu-name"> Get Started</h2> */}
@@ -143,7 +152,7 @@ const Footer = ({ topRef }) => {
 
           <div className="footer-content-column">
             <div className="footer-call-to-action">
-            <h2 className="footer-call-to-action-title"> Let's Chat</h2>
+              <h2 className="footer-call-to-action-title"> Let's Chat</h2>
               {/* <h2 className="footer-call-to-action-title">Call Us</h2> */}
               <p className="footer-call-to-action-link-wrapper">
                 {" "}
