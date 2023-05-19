@@ -34,7 +34,7 @@ const Footer = ({ topRef }) => {
                   itemProp="address"
                   className="footer-call-to-action-link-wrapper"
                 >
-                  Near SRM University-Modinagar, Delhi NCR, Meerut Road, Pincode - 201204
+                  Near SRM University-Modinagar, Delhi NCR, Meerut Road, pincode - 201204
                 </span>
               </div>
             </div>
@@ -197,7 +197,9 @@ const Footer = ({ topRef }) => {
               </a>
             </div>
           </div>
-          <div className="footer-social-links">
+
+          {/* Social media section is below  */}
+          {/* <div className="footer-social-links">
             {" "}
             <svg
               className="footer-social-amoeba-svg"
@@ -265,7 +267,7 @@ const Footer = ({ topRef }) => {
                 />
               </svg>
             </Link>
-          </div>
+          </div> */}
         </div>
         <div className="footer-copyright">
           <div className="footer-copyright-wrapper">
